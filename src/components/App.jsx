@@ -53,9 +53,9 @@ export default function App() {
   }
 
   function getVisibleContacts() {
-    const normalizeFilter = filter.toLocaleLowerCase();
+    const normalizeFilter = filter.toLowerCase();
     return contacts.filter(contact =>
-      contact.name.toLocaleLowerCase().includes(normalizeFilter)
+      contact.name.toLowerCase().includes(normalizeFilter)
     );
   }
 

@@ -30,12 +30,7 @@ export default function AddContactForm({ onSubmit }) {
     e.preventDefault();
     const { name, number } = state;
     onSubmit({ name, number });
-    reset();
     e.currentTarget.reset();
-  }
-
-  function reset() {
-    setState('');
   }
 
   return (
