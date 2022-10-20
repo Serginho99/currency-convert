@@ -1,27 +1,25 @@
 import PropTypes from 'prop-types';
 import ContactItem from 'components/contactItem/ContactItem';
-import { TitleList, SearchInput, ContactList } from './ContactList.styled';
+import { TitleList, SearchInput, ContactList } from './ContactsList.styled';
+import { useFilter } from 'components/hooks/useFilter';
+import { useFilteredContacts } from 'components/hooks/useFilteredContacts';
 
-export default function ContactsList({
-  contacts,
-  value,
-  onChange,
-  deleteContact,
-}) {
+export default function ContactsList() {
+  const { filter, onSetFilter } = useFilter();
+  const { getVisibleContacts } = useFilteredContacts();
+
+  function changeFilter(e) {
+    const { value } = e.currentTarget;
+    onSetFilter(value);
+  }
+
   return (
     <>
       <TitleList>Contacts</TitleList>
-      <SearchInput type="text" value={value} onChange={onChange} />
+      <SearchInput type="text" value={filter} onChange={changeFilter} />
       <ContactList>
-        {contacts.map(({ name, id, number }) => {
-          return (
-            <ContactItem
-              key={id}
-              name={name}
-              number={number}
-              removeContact={() => deleteContact(id, name)}
-            />
-          );
+        {getVisibleContacts.map(({ name, id, number }) => {
+          return <ContactItem key={id} name={name} number={number} id={id} />;
         })}
       </ContactList>
     </>

@@ -5,16 +5,17 @@ import {
   FormInput,
   FormButton,
 } from './AddContactForm.styled';
-
-// import PropTypes from 'prop-types';
+import { useContacts } from 'components/hooks/useContacts';
+import { Notify } from 'notiflix';
 
 const initialState = {
   name: '',
   number: '',
 };
 
-export default function AddContactForm({ onSubmit }) {
+export default function AddContactForm() {
   const [state, setState] = useState(initialState);
+  const { contacts, addContact } = useContacts();
 
   function handleChange(e) {
     const { name, value } = e.currentTarget;
@@ -29,9 +30,20 @@ export default function AddContactForm({ onSubmit }) {
   function handleSubmit(e) {
     e.preventDefault();
     const { name, number } = state;
-    onSubmit({ name, number });
-    // e.currentTarget.reset();
+
+    if (isDuplicateContact({ name, number })) {
+      return Notify.info(`${name}: ${number} is already on your contact list`);
+    }
+
+    addContact({ name, number });
+    Notify.success(`${name} added to your contact list`);
     reset();
+  }
+
+  function isDuplicateContact({ name, number }) {
+    return contacts.find(
+      contact => contact.name === name && contact.number === number
+    );
   }
 
   function reset() {
