@@ -4,7 +4,7 @@ import {
   addContactItem,
   removeContact,
 } from './contactsOperation';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 
 const initialState = {
   contactsItem: [],

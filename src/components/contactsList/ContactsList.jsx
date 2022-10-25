@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import ContactItem from 'components/contactItem/ContactItem';
+// import ContactItem from 'components/contactItem/ContactItem';
 import { TitleList, SearchInput, ContactList } from './ContactsList.styled';
 import { useFilter } from 'components/hooks/useFilter';
-import { useFilteredContacts } from 'components/hooks/useFilteredContacts';
-import { useSelector } from 'react-redux';
+// import { useFilteredContacts } from 'components/hooks/useFilteredContacts';
+// import { useSelector } from 'react-redux';
 
 export default function ContactsList() {
   const { filter, onSetFilter } = useFilter();

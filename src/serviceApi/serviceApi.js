@@ -5,9 +5,10 @@ export async function fetchContacts() {
     const result = await axios.get(
       'https://63565a17a2d1844a9772961c.mockapi.io/api/v1/contacts'
     );
+    console.log(result);
     return result.data;
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 }
 

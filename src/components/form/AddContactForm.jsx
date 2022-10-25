@@ -5,7 +5,7 @@ import {
   FormInput,
   FormButton,
 } from './AddContactForm.styled';
-import { useContacts } from 'components/hooks/useContacts';
+// import { useContacts } from 'components/hooks/useContacts';
 import { Notify } from 'notiflix';
 
 const initialState = {

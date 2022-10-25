@@ -1,4 +1,4 @@
-import { persistContactsConfig, persistFilterConfig } from './persistConfig';
+import { persistFilterConfig } from './persistConfig';
 // import contactsSlice from 'redux/contacts/contactsSlice';
 import filterSlice from 'redux/filter/filterSlice';
 import persistReducer from 'redux-persist/es/persistReducer';
