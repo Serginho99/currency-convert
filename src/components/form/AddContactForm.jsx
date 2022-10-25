@@ -15,7 +15,7 @@ const initialState = {
 
 export default function AddContactForm() {
   const [state, setState] = useState(initialState);
-  const { contacts, addContact } = useContacts();
+  // const { contacts, addContact } = useContacts();
 
   function handleChange(e) {
     const { name, value } = e.currentTarget;
@@ -35,15 +35,15 @@ export default function AddContactForm() {
       return Notify.info(`${name}: ${number} is already on your contact list`);
     }
 
-    addContact({ name, number });
+    // addContact({ name, number });
     Notify.success(`${name} added to your contact list`);
     reset();
   }
 
   function isDuplicateContact({ name, number }) {
-    return contacts.find(
-      contact => contact.name === name && contact.number === number
-    );
+    // return contacts.find(
+    //   contact => contact.name === name && contact.number === number
+    // );
   }
 
   function reset() {
