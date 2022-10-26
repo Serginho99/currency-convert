@@ -8,7 +8,7 @@ import { useContacts } from 'components/hooks/useContacts';
 export default function ContactsList() {
   const { filter, onSetFilter } = useFilter();
   const { getVisibleContacts } = useFilteredContacts();
-  const { isLoading, isFetching } = useContacts();
+  const { isFetching } = useContacts();
 
   function changeFilter(e) {
     const { value } = e.currentTarget;
