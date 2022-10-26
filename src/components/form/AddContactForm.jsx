@@ -81,7 +81,7 @@ export default function AddContactForm() {
         />
       </FormLabel>
       <FormButton type="submit" disabled={isLoading}>
-        {isLoading ? <p>load</p> : 'Add contact'}
+        {isLoading ? 'load' : 'Add contact'}
       </FormButton>
     </FormWrapper>
   );
