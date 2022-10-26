@@ -1,21 +1,8 @@
 import AddContactForm from './form/AddContactForm';
 import ContactsList from './contactsList/ContactsList';
 import Section from './section/Section';
-import { getContacts } from 'redux/contacts/contactsOperation';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchContacts } from 'serviceApi/serviceApi';
 
 export default function App() {
-  const dispatch = useDispatch();
-  const contact = useSelector(state => state.contacts.contactsItem);
-  console.log(contact);
-  // getContacts();
-  fetchContacts();
-  useEffect(() => {
-    dispatch(getContacts());
-  }, [dispatch]);
-
   return (
     <>
       <Section>

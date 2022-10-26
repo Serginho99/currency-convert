@@ -5,17 +5,19 @@ import {
   FormInput,
   FormButton,
 } from './AddContactForm.styled';
-// import { useContacts } from 'components/hooks/useContacts';
+import { useContacts } from 'components/hooks/useContacts';
 import { Notify } from 'notiflix';
+import { useAddContactMutation } from 'redux/contacts/contactsSlice';
 
 const initialState = {
   name: '',
-  number: '',
+  phone: '',
 };
 
 export default function AddContactForm() {
   const [state, setState] = useState(initialState);
-  // const { contacts, addContact } = useContacts();
+  const { contacts } = useContacts();
+  const [addContact, { isLoading }] = useAddContactMutation();
 
   function handleChange(e) {
     const { name, value } = e.currentTarget;
@@ -27,27 +29,29 @@ export default function AddContactForm() {
     });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const { name, number } = state;
-
-    if (isDuplicateContact({ name, number })) {
-      return Notify.info(`${name}: ${number} is already on your contact list`);
+    const { name, phone } = state;
+    if (isDuplicateContact({ name, phone })) {
+      return Notify.info(`${name}: ${phone} is already on your contact list`);
     }
-
-    // addContact({ name, number });
-    Notify.success(`${name} added to your contact list`);
-    reset();
+    try {
+      await addContact({ name, phone });
+      Notify.success(`${name} added to your contact list`);
+      reset();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  function isDuplicateContact({ name, number }) {
-    // return contacts.find(
-    //   contact => contact.name === name && contact.number === number
-    // );
+  function isDuplicateContact({ name, phone }) {
+    return contacts.find(
+      contact => contact.name === name && contact.phone === phone
+    );
   }
 
   function reset() {
-    setState({ name: '', number: '' });
+    setState({ name: '', phone: '' });
   }
 
   return (
@@ -69,14 +73,16 @@ export default function AddContactForm() {
         <FormInput
           onChange={handleChange}
           type="tel"
-          name="number"
-          value={state.number}
+          name="phone"
+          value={state.phone}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
       </FormLabel>
-      <FormButton type="submit">Add contact</FormButton>
+      <FormButton type="submit" disabled={isLoading}>
+        {isLoading ? <p>load</p> : 'Add contact'}
+      </FormButton>
     </FormWrapper>
   );
 }

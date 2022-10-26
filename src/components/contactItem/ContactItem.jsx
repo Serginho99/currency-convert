@@ -2,24 +2,28 @@ import PropTypes from 'prop-types';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { Item, Text, BtnDelete } from './ContactItem.styled';
 import { Notify } from 'notiflix';
-import { useContacts } from 'components/hooks/useContacts';
 import { memo } from 'react';
+import { useDeleteContactMutation } from 'redux/contacts/contactsSlice';
 
-function ContactItem({ name, number, id }) {
-  const { deleteContact } = useContacts();
+function ContactItem({ name, phone, id }) {
+  const [deleteContact, { isLoading }] = useDeleteContactMutation();
 
-  function removeContact() {
-    deleteContact(id);
-    Notify.info(`${name} has been deleted`);
+  async function removeContact() {
+    try {
+      await deleteContact(id);
+      Notify.info(`${name} has been deleted`);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
     <Item>
       <Text>
-        {name}: {number}
+        {name}: {phone}
       </Text>
       <BtnDelete type="button" onClick={() => removeContact(id)}>
-        <RiDeleteBinLine />
+        {isLoading ? <p>remove</p> : <RiDeleteBinLine />}
       </BtnDelete>
     </Item>
   );
