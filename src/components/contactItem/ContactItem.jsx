@@ -23,7 +23,7 @@ function ContactItem({ name, phone, id }) {
         {name}: {phone}
       </Text>
       <BtnDelete type="button" onClick={() => removeContact(id)}>
-        {isLoading ? <p>remove</p> : <RiDeleteBinLine />}
+        {isLoading ? 'remove' : <RiDeleteBinLine />}
       </BtnDelete>
     </Item>
   );
