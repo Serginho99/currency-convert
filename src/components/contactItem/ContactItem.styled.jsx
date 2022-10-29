@@ -30,20 +30,4 @@ export const BtnDelete = styled.button`
     color: black;
     transform: scale(1.3);
   }
-  /* display: block;
-  width: 50px;
-  height: 25px;
-  font-family: inherit;
-  color: #fff;
-  background-color: #2196f3;
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
-  border-radius: 2px;
-  border: transparent;
-  cursor: pointer;
-  margin-bottom: 10px;
-  transition: 250ms;
-  :hover {
-    color: #2196f3;
-    background-color: lightblue;
-  } */
 `;

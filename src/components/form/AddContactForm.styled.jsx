@@ -5,7 +5,6 @@ export const FormWrapper = styled.form`
 `;
 
 export const FormLabel = styled.label`
-  /* display: block; */
   font-size: 20px;
   line-height: 1.16;
   letter-spacing: 0.01em;
