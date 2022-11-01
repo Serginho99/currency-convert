@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { TitleList, SearchInput, ContactList } from './ContactsList.styled';
-import { useFilter } from 'components/Hooks/useFilter';
-import { useFilteredContacts } from 'components/Hooks/useFilteredContacts';
-import ContactItem from 'components/СontactItem/ContactItem';
-import { useContacts } from 'components/Hooks/useContacts';
+import { useFilter } from 'components/hooks/useFilter';
+import { useFilteredContacts } from 'components/hooks/useFilteredContacts';
+import ContactItem from 'components/contactItem/ContactItem';
+import { useContacts } from 'components/hooks/useContacts';
 
 export default function ContactsList() {
   const { filter, onSetFilter } = useFilter();

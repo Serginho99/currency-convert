@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectorIsLoggedIn } from 'redux/auth/authSelector';
 import { useEffect } from 'react';
 import authOperations from 'redux/auth/authOperations';
-import UserRoutes from './Routes/UserRotues';
+import UserRoutes from './Routes/UserRoutes';
 
 export default function App() {
   const dispatch = useDispatch();
