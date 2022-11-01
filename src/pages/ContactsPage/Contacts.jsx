@@ -1,5 +1,5 @@
 import ContactsList from 'components/СontactsList/ContactsList';
-import AddContactForm from 'components/Form/AddContactForm';
+import AddContactForm from 'components/form/AddContactForm';
 import Section from 'components/Section/Section';
 import React from 'react';
 
