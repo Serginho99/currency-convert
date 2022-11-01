@@ -1,8 +1,8 @@
-import Contacts from 'components/Contacts/Contacts';
+import Contacts from 'pages/ContactsPage/Contacts';
 import Layout from 'components/Layout/Layout';
-import LogInForm from 'components/LogInForm/LogInForm';
-import RegisterForm from 'components/Register/RegisterForm';
-import HomePage from 'HomePage/HomePage';
+import LogInForm from 'pages/LoginPage/LogInForm';
+import RegisterForm from 'pages/RegisterPage/RegisterForm';
+import HomePage from 'pages/HomePage/HomePage';
 import { Route, Routes } from 'react-router-dom';
 
 export default function UserRoutes() {
