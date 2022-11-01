@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import * as API from 'components/Services/userApi';
+import * as API from 'components/services/userApi';
 
 const token = {
   set(token) {
