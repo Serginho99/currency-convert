@@ -5,7 +5,7 @@ import {
   FormInput,
   FormButton,
 } from './AddContactForm.styled';
-import { useContacts } from 'components/hooks/useContacts';
+import { useContacts } from 'components/Hooks/useContacts';
 import { Notify } from 'notiflix';
 import { useAddContactMutation } from 'redux/contacts/contactsApi';
 
