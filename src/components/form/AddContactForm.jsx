@@ -7,7 +7,7 @@ import {
 } from './AddContactForm.styled';
 import { useContacts } from 'components/hooks/useContacts';
 import { Notify } from 'notiflix';
-import { useAddContactMutation } from 'redux/contacts/contactsSlice';
+import { useAddContactMutation } from 'redux/contacts/contactsApi';
 
 const initialState = {
   name: '',

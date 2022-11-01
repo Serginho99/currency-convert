@@ -3,7 +3,7 @@ import { RiDeleteBinLine } from 'react-icons/ri';
 import { Item, Text, BtnDelete } from './ContactItem.styled';
 import { Notify } from 'notiflix';
 import { memo } from 'react';
-import { useDeleteContactMutation } from 'redux/contacts/contactsSlice';
+import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 
 function ContactItem({ name, phone, id }) {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();

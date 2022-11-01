@@ -5,6 +5,12 @@ import storage from 'redux-persist/lib/storage';
 //   storage,
 // };
 
+export const persistAuthConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
 export const persistFilterConfig = {
   key: 'filter',
   storage,
