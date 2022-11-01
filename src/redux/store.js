@@ -4,7 +4,6 @@ import {
   persistorFilterReducer,
   persistorAuthReducer,
 } from './persist/persistReducer';
-import authSlice from './auth/authSlice';
 import {
   persistStore,
   FLUSH,
