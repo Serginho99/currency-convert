@@ -25,8 +25,8 @@ export default function ContactsList() {
         <div>zero</div>
       ) : (
         <ContactList>
-          {getVisibleContacts?.map(({ name, id, phone }) => {
-            return <ContactItem key={id} name={name} phone={phone} id={id} />;
+          {getVisibleContacts?.map(({ name, id, number }) => {
+            return <ContactItem key={id} name={name} number={number} id={id} />;
           })}
         </ContactList>
       )}

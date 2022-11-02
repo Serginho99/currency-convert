@@ -5,7 +5,7 @@ import { Notify } from 'notiflix';
 import { memo } from 'react';
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 
-function ContactItem({ name, phone, id }) {
+function ContactItem({ name, number, id }) {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
 
   async function removeContact() {
@@ -20,7 +20,7 @@ function ContactItem({ name, phone, id }) {
   return (
     <Item>
       <Text>
-        {name}: {phone}
+        {name}: {number}
       </Text>
       <BtnDelete type="button" onClick={() => removeContact(id)}>
         {isLoading ? 'remove' : <RiDeleteBinLine />}

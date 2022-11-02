@@ -11,7 +11,7 @@ import { useAddContactMutation } from 'redux/contacts/contactsApi';
 
 const initialState = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 export default function AddContactForm() {
@@ -31,12 +31,12 @@ export default function AddContactForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const { name, phone } = state;
-    if (isDuplicateContact({ name, phone })) {
-      return Notify.info(`${name}: ${phone} is already on your contact list`);
+    const { name, number } = state;
+    if (isDuplicateContact({ name, number })) {
+      return Notify.info(`${name}: ${number} is already on your contact list`);
     }
     try {
-      await addContact({ name, phone });
+      await addContact({ name, number });
       Notify.success(`${name} added to your contact list`);
       reset();
     } catch (error) {
@@ -44,14 +44,14 @@ export default function AddContactForm() {
     }
   }
 
-  function isDuplicateContact({ name, phone }) {
+  function isDuplicateContact({ name, number }) {
     return contacts.find(
-      contact => contact.name === name && contact.phone === phone
+      contact => contact.name === name && contact.number === number
     );
   }
 
   function reset() {
-    setState({ name: '', phone: '' });
+    setState({ name: '', number: '' });
   }
 
   return (
@@ -73,8 +73,8 @@ export default function AddContactForm() {
         <FormInput
           onChange={handleChange}
           type="tel"
-          name="phone"
-          value={state.phone}
+          name="number"
+          value={state.number}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required

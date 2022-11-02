@@ -19,8 +19,12 @@ const register = createAsyncThunk(
       const data = await API.signUp(credentials);
       token.set(data.token);
       return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
+    } catch ({ response }) {
+      const error = {
+        status: response.status,
+        message: response.data.message,
+      };
+      return rejectWithValue(error);
     }
   }
 );
@@ -32,8 +36,12 @@ const logIn = createAsyncThunk(
       const data = await API.logIn(credentials);
       token.set(data.token);
       return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
+    } catch ({ response }) {
+      const error = {
+        status: response.status,
+        message: response.data.message,
+      };
+      return rejectWithValue(error);
     }
   }
 );
@@ -44,8 +52,12 @@ const logOut = createAsyncThunk(
     try {
       await API.logOut();
       token.unSet();
-    } catch (error) {
-      return rejectWithValue(error.message);
+    } catch ({ response }) {
+      const error = {
+        status: response.status,
+        message: response.data.message,
+      };
+      return rejectWithValue(error);
     }
   }
 );
@@ -64,8 +76,12 @@ const currentUser = createAsyncThunk(
     try {
       const data = API.fetchCurrentUser();
       return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
+    } catch ({ response }) {
+      const error = {
+        status: response.status,
+        message: response.data.message,
+      };
+      return rejectWithValue(error);
     }
   }
 );
