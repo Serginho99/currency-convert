@@ -15,11 +15,12 @@ export default function UserRoutes() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
             <Route element={<PublicRoute />}>
-              <Route index element={<HomePage />} />
               <Route path="register" element={<RegisterForm />} />
               <Route path="login" element={<LogInForm />} />
             </Route>
+
             <Route element={<PrivateRoute />}>
               <Route path="contacts" element={<Contacts />} />
             </Route>
