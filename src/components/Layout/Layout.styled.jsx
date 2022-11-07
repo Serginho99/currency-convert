@@ -5,4 +5,5 @@ export const Header = styled.header`
   justify-content: flex-end; */
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color: orange;
 `;
