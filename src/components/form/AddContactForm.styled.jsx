@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const FormWrapper = styled.form`
   display: block;
+  /* align-items: center; */
+  text-align: center;
 `;
 
 export const FormLabel = styled.label`
@@ -39,6 +41,7 @@ export const FormButton = styled.button`
   margin: 0 auto;
   cursor: pointer;
   transition: 250ms;
+  margin-top: 20px;
   :hover {
     color: #2196f3;
     background-color: lightblue;

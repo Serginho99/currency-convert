@@ -14,7 +14,7 @@ export default function UserMenu() {
         <Button
           // style={{ color: 'red' }}
           onClick={() => dispatch(authOperations.logOut())}
-          variant="contained"
+          variant="outlined"
         >
           log out
         </Button>

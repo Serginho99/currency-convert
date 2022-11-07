@@ -25,3 +25,7 @@ export const ContactList = styled.ul`
   margin-right: auto;
   padding-top: 25px;
 `;
+
+export const InputBox = styled.div`
+  text-align: center;
+`;
