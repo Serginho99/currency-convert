@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {
-  TitleList,
-  SearchInput,
+  // TitleList,
+  // SearchInput,
   ContactList,
   InputBox,
 } from './ContactsList.styled';

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import {
   FormWrapper,
-  FormLabel,
-  FormInput,
-  FormButton,
-  TextInput,
-  Btn,
+  // FormLabel,
+  // FormInput,
+  // FormButton,
+  // TextInput,
+  // Btn,
 } from './AddContactForm.styled';
 import { useContacts } from 'components/hooks/useContacts';
 import { Notify } from 'notiflix';
