@@ -76,6 +76,7 @@ export default function AddContactForm() {
       </FormLabel> */}
       <div>
         <TextField
+          style={{ width: '300px' }}
           id="standard-basic"
           label="Name"
           variant="standard"
@@ -99,6 +100,7 @@ export default function AddContactForm() {
       </FormLabel> */}
       <div>
         <TextField
+          style={{ width: '300px' }}
           id="standard-basic"
           label="Number"
           variant="standard"
