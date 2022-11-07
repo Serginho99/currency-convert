@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const SectionBox = styled.section`
-  text-align: center;
-  padding-top: 20px;
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
 `;

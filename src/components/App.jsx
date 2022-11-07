@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import authOperations from 'redux/auth/authOperations';
 import UserRoutes from './Routes/UserRoutes';
 import { selectorLoadingUser } from 'redux/auth/authSelector';
+import { GlobalStyles } from 'GlobalStyles.styled';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -12,5 +13,10 @@ export default function App() {
     dispatch(authOperations.currentUser());
   }, [dispatch]);
 
-  return <>{isLoadingUser ? <p>load</p> : <UserRoutes />}</>;
+  return (
+    <>
+      <GlobalStyles />
+      {isLoadingUser ? <p>load</p> : <UserRoutes />}
+    </>
+  );
 }

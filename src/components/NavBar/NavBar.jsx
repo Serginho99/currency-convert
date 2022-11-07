@@ -1,19 +1,26 @@
-import { NavLink } from 'react-router-dom';
 import { selectorIsLoggedIn } from 'redux/auth/authSelector';
 import { useSelector } from 'react-redux';
 import UserMenu from 'components/UserMenu/UserMenu';
 import NavAuth from './NavAuth';
+import { Logo, Nav, NavBox, NavList, Span } from './NavBar.styled';
 
 export default function NavBar() {
   const isLoggedIn = useSelector(selectorIsLoggedIn);
 
   return (
     <>
-      <nav>
-        <NavLink to="/">logo</NavLink> <NavLink to="/">Home</NavLink>{' '}
-        {isLoggedIn && <NavLink to="contacts">Contacts</NavLink>}
+      <Nav>
+        <Logo to="/">
+          Phone<Span>Book</Span>
+        </Logo>{' '}
+        <NavBox>
+          {/* <NavList to="/" end>
+            Home
+          </NavList>{' '} */}
+          {isLoggedIn && <NavList to="contacts">Contacts</NavList>}
+        </NavBox>
         {!isLoggedIn ? <NavAuth /> : <UserMenu />}
-      </nav>
+      </Nav>
     </>
   );
 }

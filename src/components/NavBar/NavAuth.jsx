@@ -1,10 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import { Box, NavAuthSignIn, NavAuthSignUp } from './NavAuth.styled';
 
 export default function NavAuth() {
   return (
     <>
-      <NavLink to="register">register</NavLink>{' '}
-      <NavLink to="login">login</NavLink>
+      <Box>
+        <NavAuthSignUp to="register">Sign Up</NavAuthSignUp>
+        <NavAuthSignIn to="login">Sign In</NavAuthSignIn>
+      </Box>
     </>
   );
 }

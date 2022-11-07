@@ -1,14 +1,20 @@
 import NavBar from 'components/NavBar/NavBar';
+import Section from 'components/section/Section';
 import { Outlet } from 'react-router-dom';
+import { Header } from './Layout.styled';
 
 export default function Layout() {
   return (
     <>
-      <header>
-        <NavBar />
-      </header>
+      <Header>
+        <Section>
+          <NavBar />
+        </Section>
+      </Header>
       <main>
-        <Outlet />
+        <Section>
+          <Outlet />
+        </Section>
       </main>
     </>
   );
