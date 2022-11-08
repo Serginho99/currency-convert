@@ -6,8 +6,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -22,11 +20,35 @@ const theme = createTheme();
 
 export default function LogInForm() {
   const [error, setError] = useState(null);
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState(false);
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState(false);
   const dispatch = useDispatch();
+
+  const options = { email: setEmail, password: setPassword };
+
+  function onChange({ target: { name, value } }) {
+    options[name](value.toLowerCase());
+  }
 
   const handleSubmit = async event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+
+    if (email === '') {
+      setEmailError(true);
+      return;
+    } else {
+      setEmailError(false);
+    }
+
+    if (password === '') {
+      setPasswordError(true);
+      return;
+    } else {
+      setPasswordError(false);
+    }
 
     const res = await dispatch(
       authOperations.logIn({
@@ -71,16 +93,19 @@ export default function LogInForm() {
             )}
 
             <TextField
+              error={emailError}
               margin="normal"
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Email"
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={onChange}
             />
             <TextField
+              error={passwordError}
               margin="normal"
               required
               fullWidth
@@ -89,6 +114,7 @@ export default function LogInForm() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={onChange}
             />
             {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
