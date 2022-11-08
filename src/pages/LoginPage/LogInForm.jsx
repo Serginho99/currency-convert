@@ -15,20 +15,29 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
+import Alert from '@mui/material/Alert';
 
 const theme = createTheme();
 
 export default function LogInForm() {
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const handleSubmit = event => {
+
+  const handleSubmit = async event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    dispatch(
+
+    const res = await dispatch(
       authOperations.logIn({
         email: data.get('email'),
         password: data.get('password'),
       })
     );
+
+    if (res.payload.status === 400) {
+      setError('User with this Email or Password not found');
+    }
   };
 
   return (
@@ -55,6 +64,12 @@ export default function LogInForm() {
             noValidate
             sx={{ mt: 1 }}
           >
+            {error && (
+              <Alert variant="outlined" severity="error">
+                {error}
+              </Alert>
+            )}
+
             <TextField
               margin="normal"
               required

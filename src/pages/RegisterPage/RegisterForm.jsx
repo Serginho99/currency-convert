@@ -15,26 +15,64 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
+import Alert from '@mui/material/Alert';
 
 const theme = createTheme();
 
 export default function RegisterForm() {
+  const [error, setError] = useState(null);
+  const [name, setName] = useState(null);
+  const [isUser, setIsUser] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
+
   const dispatch = useDispatch();
-  const handleSubmit = event => {
+
+  const handleSubmit = async event => {
     event.preventDefault();
+    // if (user === undefined) {
+    //   return;
+    // }
     const data = new FormData(event.currentTarget);
-    console.log({
-      name: data.get('name'),
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-    dispatch(
+    // console.log({
+    //   name: data.get('name'),
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    // });
+    const res = await dispatch(
       authOperations.register({
         name: data.get('name'),
         email: data.get('email'),
         password: data.get('password'),
       })
     );
+    console.log(res.payload);
+    const nameUser = event.target.elements.name.value;
+    const passwordLength = event.target.elements.password.value.length;
+    const emailLength = event.target.elements.email.value;
+    if (nameUser === '') {
+      setName(true);
+    } else {
+      setName(null);
+    }
+    if (passwordLength < 7) {
+      setPasswordError(true);
+    } else {
+      setPasswordError(null);
+    }
+    if (res.payload.message === undefined) {
+      setIsUser('User with this email already exists');
+    } else {
+      setIsUser(null);
+    }
+    if (
+      res.payload.message === 'User validation failed: email: Invalid email.' ||
+      emailLength === ''
+    ) {
+      setError(true);
+    } else {
+      setError(null);
+    }
   };
 
   return (
@@ -63,15 +101,28 @@ export default function RegisterForm() {
           >
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                <TextField
-                  autoComplete="given-name"
-                  name="name"
-                  required
-                  fullWidth
-                  id="name"
-                  label="Name"
-                  autoFocus
-                />
+                {!name ? (
+                  <TextField
+                    autoComplete="given-name"
+                    name="name"
+                    required
+                    fullWidth
+                    id="name"
+                    label="Name"
+                    autoFocus
+                  />
+                ) : (
+                  <TextField
+                    error
+                    autoComplete="given-name"
+                    name="name"
+                    required
+                    fullWidth
+                    id="name"
+                    label="Invalid name"
+                    autoFocus
+                  />
+                )}
               </Grid>
               {/* <Grid item xs={12} sm={6}>
                 <TextField
@@ -84,25 +135,60 @@ export default function RegisterForm() {
                 />
               </Grid> */}
               <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
+                {isUser && (
+                  <Alert
+                    variant="outlined"
+                    severity="error"
+                    style={{ marginBottom: '15px' }}
+                  >
+                    {isUser}
+                  </Alert>
+                )}
+                {!error ? (
+                  <TextField
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                  />
+                ) : (
+                  <TextField
+                    required
+                    fullWidth
+                    error
+                    id="email"
+                    label="Invalid email"
+                    name="email"
+                    autoComplete="email"
+                  />
+                )}
               </Grid>
+
               <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
+                {!passwordError ? (
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                  />
+                ) : (
+                  <TextField
+                    required
+                    fullWidth
+                    error
+                    name="password"
+                    label="Password is shorter than the minimum allowed length (7)"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                  />
+                )}
               </Grid>
               {/* <Grid item xs={12}>
                 <FormControlLabel
@@ -175,4 +261,3 @@ export default function RegisterForm() {
 //       </form>
 //     </>
 //   );
-// }
