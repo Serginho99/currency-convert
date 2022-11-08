@@ -19,7 +19,20 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
 
-const theme = createTheme();
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'Lucida Sans',
+      'Lucida Sans Regular',
+      'Lucida Grande',
+      'Lucida Sans Unicode',
+      'Geneva',
+      'Verdana',
+      'sans - serif',
+    ].join(','),
+    fontSize: 15,
+  },
+});
 
 export default function RegisterForm() {
   // const [error, setError] = useState(null);
@@ -64,7 +77,7 @@ export default function RegisterForm() {
       setPasswordError(true);
       return;
     } else {
-      setPasswordError(false);
+      setPasswordError(null);
     }
 
     const data = new FormData(event.currentTarget);
@@ -79,6 +92,8 @@ export default function RegisterForm() {
     if (res.payload.status === 400) {
       setError('Wrong password or email');
       return;
+    } else {
+      setError(false);
     }
 
     // const nameUser = event.target.elements.name.value;
@@ -208,7 +223,8 @@ export default function RegisterForm() {
                       error={passwordError}
                       name="password"
                       // value={password}
-                      label="Password is shorter than the minimum allowed length (7)."
+                      label="Password"
+                      helperText="Password is shorter than the minimum allowed length (7)."
                       type="password"
                       id="password"
                       autoComplete="new-password"

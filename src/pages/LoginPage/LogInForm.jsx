@@ -15,7 +15,20 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
 
-const theme = createTheme();
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'Lucida Sans',
+      'Lucida Sans Regular',
+      'Lucida Grande',
+      'Lucida Sans Unicode',
+      'Geneva',
+      'Verdana',
+      'sans - serif',
+    ].join(','),
+    fontSize: 15,
+  },
+});
 
 export default function LogInForm() {
   const [error, setError] = useState(null);
