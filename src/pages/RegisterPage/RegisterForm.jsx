@@ -46,7 +46,7 @@ export default function RegisterForm() {
   const handleSubmit = async event => {
     event.preventDefault();
 
-    if (name === '') {
+    if (name.trim() === '') {
       setNameError(true);
       return;
     } else {

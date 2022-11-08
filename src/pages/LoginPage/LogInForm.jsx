@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-// import { useState } from 'react';
 import authOperations from 'redux/auth/authOperations';
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
