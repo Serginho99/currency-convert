@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
+import { Link } from 'react-router-dom';
 
 const theme = createTheme({
   typography: {
@@ -42,6 +43,8 @@ export default function LogInForm() {
 
   function onChange({ target: { name, value } }) {
     options[name](value.toLowerCase());
+    setEmailError(false);
+    setPasswordError(false);
   }
 
   const handleSubmit = async event => {
@@ -51,15 +54,11 @@ export default function LogInForm() {
     if (email === '') {
       setEmailError(true);
       return;
-    } else {
-      setEmailError(false);
     }
 
     if (password === '') {
       setPasswordError(true);
       return;
-    } else {
-      setPasswordError(false);
     }
 
     const res = await dispatch(
@@ -147,8 +146,13 @@ export default function LogInForm() {
                 </Link>
               </Grid> */}
               <Grid item>
-                <Link href="register" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                Don't have an account?{' '}
+                <Link
+                  to="/register"
+                  variant="body2"
+                  style={{ textDecoration: 'underline' }}
+                >
+                  {'Sign Up'}
                 </Link>
               </Grid>
             </Grid>

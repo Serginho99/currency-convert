@@ -9,7 +9,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 // import FormControlLabel from '@mui/material/FormControlLabel';
 // import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -18,6 +18,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
+import { Link } from 'react-router-dom';
 
 const theme = createTheme({
   typography: {
@@ -51,14 +52,9 @@ export default function RegisterForm() {
 
   function onChange({ target: { name, value } }) {
     options[name](value.toLowerCase());
-  }
-
-  function onBlur({ target: { name, value } }) {
-    options[name](value.toLowerCase());
     setNameError(false);
     setEmailError(false);
     setPasswordError(null);
-    // console.log(e.target);
   }
   // console.log(name);
 
@@ -175,8 +171,8 @@ export default function RegisterForm() {
                     </Alert>
                   )}
                   <TextField
-                    onBlur={onBlur}
-                    // onChange={onChange}
+                    // onBlur={onBlur}
+                    onChange={onChange}
                     error={nameError}
                     autoComplete="given-name"
                     name="name"
@@ -199,8 +195,8 @@ export default function RegisterForm() {
                     </Alert>
                   )} */}
                   <TextField
-                    onBlur={onBlur}
-                    // onChange={onChange}
+                    // onBlur={onBlur}
+                    onChange={onChange}
                     required
                     fullWidth
                     error={emailError}
@@ -263,8 +259,13 @@ export default function RegisterForm() {
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="login" variant="body2">
-                    Already have an account? Sign in
+                  Already have an account?{' '}
+                  <Link
+                    style={{ textDecoration: 'underline' }}
+                    to="/login"
+                    variant="body2"
+                  >
+                    Sign in
                   </Link>
                 </Grid>
               </Grid>
