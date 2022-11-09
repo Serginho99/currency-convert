@@ -54,7 +54,7 @@ export default function RegisterForm() {
     options[name](value.toLowerCase());
     setNameError(false);
     setEmailError(false);
-    if (password.length >= 7) {
+    if (password.length >= 6) {
       setPasswordError(false);
     }
   }
