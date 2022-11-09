@@ -52,6 +52,14 @@ export default function RegisterForm() {
   function onChange({ target: { name, value } }) {
     options[name](value.toLowerCase());
   }
+
+  function onBlur({ target: { name, value } }) {
+    options[name](value.toLowerCase());
+    setNameError(false);
+    setEmailError(false);
+    setPasswordError(null);
+    // console.log(e.target);
+  }
   // console.log(name);
 
   const dispatch = useDispatch();
@@ -62,16 +70,18 @@ export default function RegisterForm() {
     if (name.trim() === '') {
       setNameError(true);
       return;
-    } else {
-      setNameError(false);
     }
+    // else {
+    //   setNameError(false);
+    // }
 
     if (email === '') {
       setEmailError(true);
       return;
-    } else {
-      setEmailError(false);
     }
+    // else {
+    //   setEmailError(false);
+    // }
 
     if (password.length < 7) {
       setPasswordError(true);
@@ -165,7 +175,8 @@ export default function RegisterForm() {
                     </Alert>
                   )}
                   <TextField
-                    onChange={onChange}
+                    onBlur={onBlur}
+                    // onChange={onChange}
                     error={nameError}
                     autoComplete="given-name"
                     name="name"
@@ -188,7 +199,8 @@ export default function RegisterForm() {
                     </Alert>
                   )} */}
                   <TextField
-                    onChange={onChange}
+                    onBlur={onBlur}
+                    // onChange={onChange}
                     required
                     fullWidth
                     error={emailError}
@@ -204,10 +216,11 @@ export default function RegisterForm() {
                 <Grid item xs={12}>
                   {!passwordError ? (
                     <TextField
+                      // onBlur={onBlur}
                       onChange={onChange}
                       required
                       fullWidth
-                      error={passwordError}
+                      // error={passwordError}
                       name="password"
                       // value={password}
                       label="Password"
