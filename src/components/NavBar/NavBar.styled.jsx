@@ -7,9 +7,12 @@ export const Span = styled.span`
 `;
 
 export const Logo = styled(NavLink)`
-  color: blue;
+  color: white;
   font-size: 40px;
   font-weight: 600;
+  display: flex;
+  text-align: center;
+  align-items: center;
 `;
 
 export const NavList = styled(NavLink)`

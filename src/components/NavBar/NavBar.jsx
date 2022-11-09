@@ -2,7 +2,8 @@ import { selectorIsLoggedIn } from 'redux/auth/authSelector';
 import { useSelector } from 'react-redux';
 import UserMenu from 'components/UserMenu/UserMenu';
 import NavAuth from './NavAuth';
-import { Logo, Nav, NavBox, NavList, Span } from './NavBar.styled';
+import { Logo, Nav, NavList } from './NavBar.styled';
+import { FaBlenderPhone } from 'react-icons/fa';
 
 export default function NavBar() {
   const isLoggedIn = useSelector(selectorIsLoggedIn);
@@ -11,14 +12,15 @@ export default function NavBar() {
     <>
       <Nav>
         <Logo to="/">
-          Phone<Span>Book</Span>
+          <FaBlenderPhone />
+          PhoneBook
         </Logo>{' '}
-        <NavBox>
-          {/* <NavList to="/" end>
+        {/* <NavBox> */}
+        {/* <NavList to="/" end>
             Home
           </NavList>{' '} */}
-          {isLoggedIn && <NavList to="contacts">Contacts</NavList>}
-        </NavBox>
+        {isLoggedIn && <NavList to="contacts">Contacts</NavList>}
+        {/* </NavBox> */}
         {!isLoggedIn ? <NavAuth /> : <UserMenu />}
       </Nav>
     </>

@@ -2,23 +2,12 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const NavAuthSignUp = styled(NavLink)`
-  color: green;
+  color: white;
   font-size: 30px;
   transition: all 250ms;
   /* padding: 10px; */
   border-radius: 5px;
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 90%;
-    top: 8%;
-    left: 109%;
-    /* left: 5px; */
-    /* left: -1px; */
-    background-color: black;
-  }
+  /* position: relative; */
 
   &.active {
     color: white;
@@ -30,7 +19,7 @@ export const NavAuthSignUp = styled(NavLink)`
 `;
 
 export const NavAuthSignIn = styled(NavLink)`
-  color: green;
+  color: white;
   font-size: 30px;
   transition: all 250ms;
   /* padding: 10px; */
@@ -47,5 +36,16 @@ export const NavAuthSignIn = styled(NavLink)`
 `;
 
 export const Box = styled.div`
-  /* position: relative; */
+  position: relative;
+  /* display: flex; */
+  &::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 90%;
+    top: 50%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+  }
 `;

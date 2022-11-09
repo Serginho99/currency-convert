@@ -1,7 +1,7 @@
 import NavBar from 'components/NavBar/NavBar';
 import Section from 'components/section/Section';
 import { Outlet } from 'react-router-dom';
-import { Header } from './Layout.styled';
+import { Header, Main } from './Layout.styled';
 
 export default function Layout() {
   return (
@@ -11,11 +11,11 @@ export default function Layout() {
           <NavBar />
         </Section>
       </Header>
-      <main>
+      <Main>
         <Section>
           <Outlet />
         </Section>
-      </main>
+      </Main>
     </>
   );
 }

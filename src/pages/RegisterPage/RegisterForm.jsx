@@ -55,7 +55,7 @@ export default function RegisterForm() {
     setNameError(false);
     setEmailError(false);
     if (password.length >= 7) {
-      setPasswordError(null);
+      setPasswordError(false);
     }
   }
   // console.log(name);
