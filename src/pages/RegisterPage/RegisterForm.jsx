@@ -54,7 +54,9 @@ export default function RegisterForm() {
     options[name](value.toLowerCase());
     setNameError(false);
     setEmailError(false);
-    setPasswordError(null);
+    if (password.length >= 7) {
+      setPasswordError(null);
+    }
   }
   // console.log(name);
 
@@ -82,9 +84,10 @@ export default function RegisterForm() {
     if (password.length < 7) {
       setPasswordError(true);
       return;
-    } else {
-      setPasswordError(null);
     }
+    // else {
+    //   setPasswordError(null);
+    // }
 
     const data = new FormData(event.currentTarget);
     const res = await dispatch(
@@ -171,7 +174,6 @@ export default function RegisterForm() {
                     </Alert>
                   )}
                   <TextField
-                    // onBlur={onBlur}
                     onChange={onChange}
                     error={nameError}
                     autoComplete="given-name"
@@ -195,7 +197,6 @@ export default function RegisterForm() {
                     </Alert>
                   )} */}
                   <TextField
-                    // onBlur={onBlur}
                     onChange={onChange}
                     required
                     fullWidth
@@ -212,7 +213,6 @@ export default function RegisterForm() {
                 <Grid item xs={12}>
                   {!passwordError ? (
                     <TextField
-                      // onBlur={onBlur}
                       onChange={onChange}
                       required
                       fullWidth
