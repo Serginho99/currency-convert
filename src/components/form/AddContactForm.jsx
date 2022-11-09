@@ -1,18 +1,9 @@
 import { useState } from 'react';
-import {
-  FormWrapper,
-  // FormLabel,
-  // FormInput,
-  // FormButton,
-  // TextInput,
-  // Btn,
-} from './AddContactForm.styled';
+import { FormWrapper } from './AddContactForm.styled';
 import { useContacts } from 'components/hooks/useContacts';
 import { Notify } from 'notiflix';
 import { useAddContactMutation } from 'redux/contacts/contactsApi';
 import Button from '@mui/material/Button';
-// import * as React from 'react';
-// import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 const initialState = {
@@ -38,6 +29,9 @@ export default function AddContactForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     const { name, number } = state;
+    if (name === '' || number === '') {
+      return;
+    }
     if (isDuplicateContact({ name, number })) {
       return Notify.info(`${name}: ${number} is already on your contact list`);
     }
@@ -62,18 +56,6 @@ export default function AddContactForm() {
 
   return (
     <FormWrapper onSubmit={handleSubmit}>
-      {/* <FormLabel htmlFor="">
-        Name:{' '}
-        <FormInput
-          onChange={handleChange}
-          type="text"
-          name="name"
-          value={state.name}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </FormLabel> */}
       <div>
         <TextField
           style={{ width: '300px' }}
@@ -86,21 +68,11 @@ export default function AddContactForm() {
           value={state.name}
         />
       </div>
-      {/* <FormLabel htmlFor="">
-        Number:{' '}
-        <FormInput
-          onChange={handleChange}
-          type="tel"
-          name="number"
-          value={state.number}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </FormLabel> */}
       <div>
         <TextField
-          style={{ width: '300px' }}
+          style={{
+            width: '300px',
+          }}
           id="standard-basic"
           label="Number"
           variant="standard"
@@ -117,9 +89,6 @@ export default function AddContactForm() {
       >
         {isLoading ? 'load' : 'Add contact'}
       </Button>
-      {/* <FormButton type="submit" disabled={isLoading}>
-        {isLoading ? 'load' : 'Add contact'}
-      </FormButton> */}
     </FormWrapper>
   );
 }

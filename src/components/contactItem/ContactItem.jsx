@@ -4,15 +4,12 @@ import { Item, Text, BtnDelete } from './ContactItem.styled';
 import { Notify } from 'notiflix';
 import { memo } from 'react';
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
-import { Link } from 'react-router-dom';
 import useToggle from 'components/hooks/useToggle';
 import ChangeContact from 'components/ChangeContact/ChangeContact';
 
 function ContactItem({ name, number, id }) {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
-  // const { contactId } = useParams();
-  const { isOpen, toggle } = useToggle();
-  console.log(isOpen);
+  const { isOpen, setIsOpen, toggle } = useToggle();
 
   async function removeContact() {
     try {
@@ -26,15 +23,20 @@ function ContactItem({ name, number, id }) {
   return (
     <>
       {isOpen && (
-        <ChangeContact id={id} nameContact={name} numberContact={number} />
+        <ChangeContact
+          id={id}
+          nameContact={name}
+          numberContact={number}
+          isOpen={setIsOpen}
+        />
       )}
       <Item>
         <Text>
           {name}: {number}
         </Text>
-        <Link to={`contacts/${id}`} onClick={() => toggle()}>
+        <button type="button" onClick={() => toggle()}>
           change
-        </Link>
+        </button>
         <BtnDelete type="button" onClick={() => removeContact(id)}>
           {isLoading ? 'remove' : <RiDeleteBinLine />}
         </BtnDelete>

@@ -1,10 +1,5 @@
 import PropTypes from 'prop-types';
-import {
-  // TitleList,
-  // SearchInput,
-  ContactList,
-  InputBox,
-} from './ContactsList.styled';
+import { ContactList, InputBox } from './ContactsList.styled';
 import { useFilter } from 'components/hooks/useFilter';
 import { useFilteredContacts } from 'components/hooks/useFilteredContacts';
 import ContactItem from 'components/contactItem/ContactItem';
@@ -20,11 +15,9 @@ export default function ContactsList() {
     const { value } = e.currentTarget;
     onSetFilter(value);
   }
+
   return (
     <>
-      {/* <TitleList>Contacts</TitleList> */}
-
-      {/* <SearchInput type="text" value={filter} onChange={changeFilter} /> */}
       <InputBox>
         <TextField
           label="Search contact"

@@ -6,5 +6,5 @@ export default function useToggle() {
     setIsOpen(state => !state);
   }
 
-  return { isOpen, toggle };
+  return { isOpen, setIsOpen, toggle };
 }

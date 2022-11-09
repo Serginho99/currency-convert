@@ -1,13 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { useUpdateContactMutation } from 'redux/contacts/contactsApi';
 
-export default function ChangeContact({ nameContact, numberContact, id }) {
+export default function ChangeContact({
+  nameContact,
+  numberContact,
+  id,
+  isOpen,
+}) {
   const [updateContact] = useUpdateContactMutation();
   const [name, setName] = useState(nameContact);
   const [number, setNumber] = useState(numberContact);
-  const { contactId } = useParams();
 
   const options = { name: setName, number: setNumber };
 
@@ -19,7 +22,8 @@ export default function ChangeContact({ nameContact, numberContact, id }) {
     e.preventDefault();
 
     try {
-      await updateContact(contactId);
+      await updateContact({ id, data: { name, number } });
+      isOpen(false);
     } catch (error) {
       console.log(error);
     }

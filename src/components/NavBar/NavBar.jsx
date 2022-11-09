@@ -15,12 +15,7 @@ export default function NavBar() {
           <FaBlenderPhone />
           PhoneBook
         </Logo>{' '}
-        {/* <NavBox> */}
-        {/* <NavList to="/" end>
-            Home
-          </NavList>{' '} */}
         {isLoggedIn && <NavList to="contacts">Contacts</NavList>}
-        {/* </NavBox> */}
         {!isLoggedIn ? <NavAuth /> : <UserMenu />}
       </Nav>
     </>

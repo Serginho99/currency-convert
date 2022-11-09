@@ -12,7 +12,6 @@ export default function UserMenu() {
       <Wrapper>
         <Text>Hello, {name}</Text>
         <Button
-          // style={{ color: 'red' }}
           onClick={() => dispatch(authOperations.logOut())}
           variant="outlined"
         >
