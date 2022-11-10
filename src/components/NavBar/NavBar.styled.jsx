@@ -13,6 +13,10 @@ export const Logo = styled(NavLink)`
   display: flex;
   text-align: center;
   align-items: center;
+  transition: color 250ms;
+  &:hover {
+    color: #3378af;
+  }
 `;
 
 export const NavList = styled(NavLink)`

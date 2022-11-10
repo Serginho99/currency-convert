@@ -2,8 +2,16 @@ import styled from 'styled-components';
 
 export const FormWrapper = styled.form`
   display: block;
-  /* align-items: center; */
   text-align: center;
+  border: 2px solid rgb(21, 101, 192);
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 200px;
+  border-radius: 7px;
+  margin-top: 20px;
+  padding: 20px;
+  position: relative;
 `;
 
 export const FormLabel = styled.label`
@@ -26,24 +34,7 @@ export const FormInput = styled.input`
   cursor: pointer;
 `;
 
-export const FormButton = styled.button`
-  font-family: inherit;
-  width: 150px;
-  height: 40px;
-  color: #fff;
-  background-color: #2196f3;
-  font-size: 16px;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
-  border-radius: 4px;
-  border: transparent;
-  margin: 0 auto;
-  cursor: pointer;
-  transition: 250ms;
-  margin-top: 20px;
-  :hover {
-    color: #2196f3;
-    background-color: lightblue;
-  }
+export const ButtonWrapper = styled.div`
+  padding-top: 40px;
+  text-align: center;
 `;

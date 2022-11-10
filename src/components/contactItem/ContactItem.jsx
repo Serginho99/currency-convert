@@ -33,7 +33,7 @@ function ContactItem({ name, number, id }) {
           id={id}
           nameContact={name}
           numberContact={number}
-          isOpen={setIsOpen}
+          isOpen={isOpen}
           toggle={toggle}
           setIsOpen={setIsOpen}
         />

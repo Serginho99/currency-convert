@@ -24,6 +24,7 @@ export const ContactList = styled.ul`
 export const InputBox = styled.div`
   text-align: center;
   margin-bottom: 40px;
+  margin-top: 40px;
 `;
 
 export const IsTitleListEmpty = styled.h2`

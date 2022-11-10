@@ -4,6 +4,7 @@ import authOperations from 'redux/auth/authOperations';
 import UserRoutes from './Routes/UserRoutes';
 import { selectorLoadingUser } from 'redux/auth/authSelector';
 import { GlobalStyles } from 'GlobalStyles.styled';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   const dispatch = useDispatch();
