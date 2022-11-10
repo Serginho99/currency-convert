@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const TitleList = styled.h1`
-  margin-top: 0;
-  color: #757575;
-`;
-
 export const SearchInput = styled.input`
   border-radius: 4px;
   width: 200px;
@@ -27,5 +22,10 @@ export const ContactList = styled.ul`
 `;
 
 export const InputBox = styled.div`
+  text-align: center;
+  margin-bottom: 40px;
+`;
+
+export const IsTitleListEmpty = styled.h2`
   text-align: center;
 `;

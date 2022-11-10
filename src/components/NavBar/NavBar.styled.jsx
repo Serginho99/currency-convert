@@ -16,21 +16,18 @@ export const Logo = styled(NavLink)`
 `;
 
 export const NavList = styled(NavLink)`
-  color: green;
+  color: white;
   font-size: 30px;
   transition: all 250ms;
   padding: 10px;
   border-radius: 5px;
 
-  & + & {
-    margin-left: 20px;
-  }
   &.active {
     color: white;
-    background-color: #5e5eef;
+    background-color: #3378af;
   }
   &:hover:not(.active) {
-    color: #9696e9;
+    color: #3378af;
   }
 `;
 

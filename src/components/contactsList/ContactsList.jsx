@@ -1,15 +1,13 @@
 import PropTypes from 'prop-types';
-import { ContactList, InputBox } from './ContactsList.styled';
+import { ContactList, InputBox, IsTitleListEmpty } from './ContactsList.styled';
 import { useFilter } from 'components/hooks/useFilter';
 import { useFilteredContacts } from 'components/hooks/useFilteredContacts';
 import ContactItem from 'components/contactItem/ContactItem';
-import { useContacts } from 'components/hooks/useContacts';
 import TextField from '@mui/material/TextField';
 
 export default function ContactsList() {
   const { filter, onSetFilter } = useFilter();
   const { getVisibleContacts } = useFilteredContacts();
-  const { isFetching } = useContacts();
 
   function changeFilter(e) {
     const { value } = e.currentTarget;
@@ -26,9 +24,8 @@ export default function ContactsList() {
           onChange={changeFilter}
         />
       </InputBox>
-      {isFetching && <div>...load</div>}
       {getVisibleContacts?.length === 0 ? (
-        <div>zero</div>
+        <IsTitleListEmpty>Your contact list is empty :(</IsTitleListEmpty>
       ) : (
         <ContactList>
           {getVisibleContacts?.map(({ name, id, number }) => {

@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
-import { RiDeleteBinLine } from 'react-icons/ri';
-import { Item, Text, BtnDelete } from './ContactItem.styled';
+import {
+  Item,
+  Text,
+  BtnDelete,
+  DeleteSvg,
+  EditSvg,
+} from './ContactItem.styled';
 import { Notify } from 'notiflix';
 import { memo } from 'react';
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import useToggle from 'components/hooks/useToggle';
 import ChangeContact from 'components/ChangeContact/ChangeContact';
+import { InfinitySpin } from 'react-loader-spinner';
 
 function ContactItem({ name, number, id }) {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
@@ -28,18 +34,26 @@ function ContactItem({ name, number, id }) {
           nameContact={name}
           numberContact={number}
           isOpen={setIsOpen}
+          toggle={toggle}
+          setIsOpen={setIsOpen}
         />
       )}
       <Item>
         <Text>
           {name}: {number}
         </Text>
-        <button type="button" onClick={() => toggle()}>
-          change
-        </button>
-        <BtnDelete type="button" onClick={() => removeContact(id)}>
-          {isLoading ? 'remove' : <RiDeleteBinLine />}
-        </BtnDelete>
+        {isLoading ? (
+          <InfinitySpin color="black" width="100" />
+        ) : (
+          <div>
+            <BtnDelete type="button" onClick={() => toggle()}>
+              <EditSvg />
+            </BtnDelete>
+            <BtnDelete type="button" onClick={() => removeContact(id)}>
+              <DeleteSvg />
+            </BtnDelete>
+          </div>
+        )}
       </Item>
     </>
   );
