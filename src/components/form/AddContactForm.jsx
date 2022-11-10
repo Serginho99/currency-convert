@@ -102,8 +102,9 @@ export default function AddContactForm() {
               value={state.number}
             />
           </div>
+
           <Button
-            style={{ marginTop: '20px', marginRight: '10px', width: '150px' }}
+            style={{ marginRight: '10px', marginTop: '20px', width: '150px' }}
             variant="contained"
             type="submit"
           >
@@ -112,7 +113,7 @@ export default function AddContactForm() {
           <Button
             style={{ marginTop: '20px', width: '150px' }}
             variant="outlined"
-            type="submit"
+            type="button"
             onClick={toggle}
           >
             cancel

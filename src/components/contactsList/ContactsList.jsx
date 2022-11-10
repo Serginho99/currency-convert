@@ -18,6 +18,9 @@ export default function ContactsList() {
     <>
       <InputBox>
         <TextField
+          style={{
+            width: '300px',
+          }}
           label="Search contact"
           variant="standard"
           value={filter}

@@ -21,17 +21,6 @@ export const Text = styled.p`
 export const BtnDelete = styled.button`
   background-color: transparent;
   border: none;
-  /* height: 30px;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: center;
-  color: #757575;
-  transition: transform 250ms;
-
-  :hover {
-    color: black;
-    transform: scale(1.3);
-  } */
 `;
 
 export const EditSvg = styled(FaUserEdit)`

@@ -28,20 +28,22 @@ function ContactItem({ name, number, id }) {
 
   return (
     <>
-      {isOpen && (
-        <ChangeContact
-          id={id}
-          nameContact={name}
-          numberContact={number}
-          isOpen={isOpen}
-          toggle={toggle}
-          setIsOpen={setIsOpen}
-        />
-      )}
       <Item>
         <Text>
           {name}: {number}
         </Text>
+        <div>
+          {isOpen && (
+            <ChangeContact
+              id={id}
+              nameContact={name}
+              numberContact={number}
+              isOpen={isOpen}
+              toggle={toggle}
+              setIsOpen={setIsOpen}
+            />
+          )}
+        </div>
         {isLoading ? (
           <InfinitySpin color="black" width="100" />
         ) : (

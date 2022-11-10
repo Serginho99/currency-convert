@@ -1,27 +1,44 @@
 import React from 'react';
-// import { useState } from 'react';
-// import { useUpdateContactMutation } from 'redux/contacts/contactsApi';
-// import { useEffect } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Modal from 'react-bootstrap/Modal';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-// import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+import { useUpdateContactMutation } from 'redux/contacts/contactsApi';
+import { Button, TextField } from '@mui/material';
+import { Form } from './ChangeContact.styled';
+import { Notify } from 'notiflix';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 500,
+  height: 350,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  border: '1px solid rgb(21,101,192)',
+  borderRadius: 4,
   boxShadow: 24,
   p: 4,
 };
+
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'Lucida Sans',
+      'Lucida Sans Regular',
+      'Lucida Grande',
+      'Lucida Sans Unicode',
+      'Geneva',
+      'Verdana',
+      'sans - serif',
+    ].join(','),
+    fontSize: 23,
+    fontWeight: 700,
+  },
+});
 
 export default function ChangeContact({
   nameContact,
@@ -31,105 +48,109 @@ export default function ChangeContact({
   toggle,
   setIsOpen,
 }) {
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
-  // const [show, setShow] = useState(false);
+  const [updateContact] = useUpdateContactMutation();
+  const [name, setName] = useState(nameContact);
+  const [number, setNumber] = useState(numberContact);
 
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-  // const [updateContact] = useUpdateContactMutation();
-  // const [name, setName] = useState(nameContact);
-  // const [number, setNumber] = useState(numberContact);
+  const options = { name: setName, number: setNumber };
 
-  // const options = { name: setName, number: setNumber };
+  function onChange({ target: { name, value } }) {
+    options[name](value);
+  }
 
-  // function onChange({ target: { name, value } }) {
-  //   options[name](value);
-  // }
+  async function changeContact(e) {
+    e.preventDefault();
+    if (name === '') {
+      return;
+    }
+    if (number === '') {
+      return;
+    }
 
-  // async function changeContact(e) {
-  //   e.preventDefault();
-
-  //   try {
-  //     await updateContact({ id, data: { name, number } });
-  //     setIsOpen(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   document.addEventListener('keydown', onKeyDown);
-  //   return () => {
-  //     document.removeEventListener('keydown', onKeyDown);
-  //   };
-  // });
-
-  // function onKeyDown(e) {
-  //   if (e.code !== 'Escape') {
-  //     return;
-  //   }
-  //   toggle();
-  // }
-
-  // function clickOnBackdrop(e) {
-  //   if (e.target === e.currentTarget) {
-  //     toggle();
-  //   }
-  // }
+    try {
+      await updateContact({ id, data: { name, number } });
+      Notify.success('Successfully');
+      setIsOpen(false);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
-    <div>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={isOpen}
-        onClose={toggle}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={isOpen}>
-          <Box sx={style}>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </Box>
-        </Fade>
-      </Modal>
-    </div>
-    // <>
-    //   <Modal show={isOpen} onHide={toggle}>
-    //     <Modal.Header closeButton>
-    //       <Modal.Title>Modal heading</Modal.Title>
-    //     </Modal.Header>
-    //     <Modal.Body>
-    //       <form onSubmit={changeContact}>
-    //         <input type="text" name="name" value={name} onChange={onChange} />
-    //         <input
-    //           type="text"
-    //           name="number"
-    //           value={number}
-    //           onChange={onChange}
-    //         />
-    //       </form>
-    //     </Modal.Body>
-    //     <Modal.Footer>
-    //       <Button variant="primary" onClick={changeContact}>
-    //         Save Changes
-    //       </Button>
-    //       <Button variant="secondary" onClick={toggle}>
-    //         Close
-    //       </Button>
-    //     </Modal.Footer>
-    //   </Modal>
-    // </>
+    <>
+      <div>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          open={isOpen}
+          onClose={toggle}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={isOpen}>
+            <Box sx={style}>
+              <Form onSubmit={changeContact}>
+                <ThemeProvider theme={theme}>
+                  <div>
+                    <TextField
+                      style={{
+                        width: '400px',
+                        marginBottom: '20px',
+                        padding: '10px 0px 20px 0px',
+                      }}
+                      id="standard-basic"
+                      label="Name"
+                      variant="standard"
+                      onChange={onChange}
+                      type="text"
+                      name="name"
+                      value={name}
+                    />
+                  </div>
+                  <div>
+                    <TextField
+                      style={{
+                        width: '400px',
+                        marginBottom: '30px',
+                        padding: '10px 0px 20px 0px',
+                      }}
+                      id="standard-basic"
+                      label="Number"
+                      variant="standard"
+                      onChange={onChange}
+                      type="tel"
+                      name="number"
+                      value={number}
+                    />
+                  </div>
+                </ThemeProvider>
+                <Button
+                  style={{
+                    marginRight: '10px',
+                    marginTop: '20px',
+                    width: '150px',
+                  }}
+                  variant="contained"
+                  type="submit"
+                >
+                  save
+                </Button>
+                <Button
+                  style={{ marginTop: '20px', width: '150px' }}
+                  variant="outlined"
+                  type="button"
+                  onClick={toggle}
+                >
+                  cancel
+                </Button>
+              </Form>
+            </Box>
+          </Fade>
+        </Modal>
+      </div>
+    </>
   );
 }

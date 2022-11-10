@@ -1,6 +1,5 @@
 import { FaBlenderPhone } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import { selectorUserName } from 'redux/auth/authSelector';
 import { Wrapper, TitleHomePage, HomeLink } from './HomePage.styled';
 
