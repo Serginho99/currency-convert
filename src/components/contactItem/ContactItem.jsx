@@ -13,10 +13,26 @@ import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import useToggle from 'components/hooks/useToggle';
 import ChangeContact from 'components/ChangeContact/ChangeContact';
 import { InfinitySpin } from 'react-loader-spinner';
-import Avatar from '@mui/material/Avatar';
+import BasicAvatar from 'components/BasicAvatar/BasicAvatar';
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+function stringToColor(string) {
+  let hash = 0;
+  let i;
+
+  /* eslint-disable no-bitwise */
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  let color = '#';
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.slice(-2);
+  }
+  /* eslint-enable no-bitwise */
+
+  return color;
 }
 
 function ContactItem({ name, number, id }) {
@@ -35,7 +51,12 @@ function ContactItem({ name, number, id }) {
   return (
     <>
       <Item>
-        <Avatar sx={{ bgcolor: getRandomHexColor }}>{name.slice(0, 1)}</Avatar>
+        <BasicAvatar
+          name={name}
+          alt={name}
+          src="/static/images/avatar/2.jpg"
+          sx={{ width: 56, height: 56 }}
+        />
         <Text>
           {name}: <a href={`tel:${number}`}>{number}</a>
         </Text>
