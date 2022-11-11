@@ -31,12 +31,13 @@ export default function AddContactForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     const { name, number } = state;
+    if (isDuplicateContact({ name })) {
+      return Notify.info(`${name} is already on your contact list`);
+    }
     if (name === '' || number === '') {
       return;
     }
-    if (isDuplicateContact({ name, number })) {
-      return Notify.info(`${name}: ${number} is already on your contact list`);
-    }
+
     try {
       await addContact({ name, number });
       Notify.success(`${name} added to your contact list`);
@@ -46,10 +47,8 @@ export default function AddContactForm() {
     }
   }
 
-  function isDuplicateContact({ name, number }) {
-    return contacts.find(
-      contact => contact.name === name && contact.number === number
-    );
+  function isDuplicateContact({ name }) {
+    return contacts.find(contact => contact.name === name);
   }
 
   function reset() {
