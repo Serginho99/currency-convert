@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
@@ -24,6 +24,7 @@ export default function UserRoutes() {
             <Route element={<PrivateRoute />}>
               <Route path="contacts" element={<Contacts />} />
             </Route>
+            <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
       </Suspense>
