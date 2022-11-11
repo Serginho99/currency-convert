@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { ContactList, InputBox, IsTitleListEmpty } from './ContactsList.styled';
 import { useFilter } from 'components/hooks/useFilter';
 import { useFilteredContacts } from 'components/hooks/useFilteredContacts';
-import ContactItem from 'components/ContactItem/ContactItem';
+import ContactItem from 'components/contactItem/ContactItem';
 import TextField from '@mui/material/TextField';
 
 export default function ContactsList() {
