@@ -59,7 +59,7 @@ export default function AddContactForm() {
   return (
     <Wrapper>
       <ButtonWrapper>
-        {!isOpen && (
+        {!isOpen ? (
           <Button
             style={{
               width: '300px',
@@ -72,54 +72,53 @@ export default function AddContactForm() {
           >
             {isOpen ? 'Cancel' : 'add contact'}
           </Button>
+        ) : (
+          <FormWrapper onSubmit={handleSubmit}>
+            <div>
+              <TextField
+                style={{ width: '300px' }}
+                id="standard-basic"
+                label="Name"
+                variant="standard"
+                onChange={handleChange}
+                type="text"
+                name="name"
+                value={state.name}
+              />
+            </div>
+            <div>
+              <TextField
+                style={{
+                  width: '300px',
+                }}
+                id="standard-basic"
+                label="Number"
+                variant="standard"
+                onChange={handleChange}
+                type="tel"
+                name="number"
+                value={state.number}
+              />
+            </div>
+
+            <Button
+              style={{ marginRight: '10px', marginTop: '20px', width: '150px' }}
+              variant="contained"
+              type="submit"
+            >
+              {isLoading ? 'load' : 'Add contact'}
+            </Button>
+            <Button
+              style={{ marginTop: '20px', width: '150px' }}
+              variant="outlined"
+              type="button"
+              onClick={toggle}
+            >
+              cancel
+            </Button>
+          </FormWrapper>
         )}
       </ButtonWrapper>
-      {isOpen && (
-        <FormWrapper onSubmit={handleSubmit}>
-          <div>
-            <TextField
-              style={{ width: '300px' }}
-              id="standard-basic"
-              label="Name"
-              variant="standard"
-              onChange={handleChange}
-              type="text"
-              name="name"
-              value={state.name}
-            />
-          </div>
-          <div>
-            <TextField
-              style={{
-                width: '300px',
-              }}
-              id="standard-basic"
-              label="Number"
-              variant="standard"
-              onChange={handleChange}
-              type="tel"
-              name="number"
-              value={state.number}
-            />
-          </div>
-
-          <Button
-            style={{ marginRight: '10px', marginTop: '20px', width: '150px' }}
-            variant="contained"
-            type="submit"
-          >
-            {isLoading ? 'load' : 'Add contact'}
-          </Button>
-          <Button
-            style={{ marginTop: '20px', width: '150px' }}
-            variant="outlined"
-            type="button"
-            onClick={toggle}
-          >
-            cancel
-          </Button>
-        </FormWrapper>
-      )}
     </Wrapper>
   );
 }

@@ -7,7 +7,6 @@ export const FormWrapper = styled.form`
   border: 2px solid rgb(21, 101, 192);
   margin-left: auto;
   margin-right: auto;
-  width: 400px;
   border-radius: 7px;
   padding: 20px;
 `;
@@ -32,11 +31,13 @@ export const FormInput = styled.input`
 `;
 
 export const ButtonWrapper = styled.div`
-  padding-top: 40px;
+  padding: 24px;
   text-align: center;
+  width: 400px;
 `;
 
 export const Wrapper = styled.div`
+  width: 450px;
   position: sticky;
   top: 0;
 `;

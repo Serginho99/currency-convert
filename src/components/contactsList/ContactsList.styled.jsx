@@ -15,16 +15,15 @@ export const ContactList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-  /* width: 400px; */
   margin-left: auto;
   margin-right: auto;
-  padding-top: 25px;
+  padding-bottom: 20px;
 `;
 
 export const InputBox = styled.div`
   text-align: center;
   margin-bottom: 40px;
-  margin-top: 40px;
+  margin-top: 24px;
 `;
 
 export const IsTitleListEmpty = styled.h2`
