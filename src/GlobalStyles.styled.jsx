@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
    body{
       font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
       margin: 0;
+      height: 100vh;
       font-size: 14px;
   letter-spacing: 0.03em;
   background-color: #f5f4fa;
