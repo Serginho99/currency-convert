@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FormWrapper, ButtonWrapper } from './AddContactForm.styled';
+import { FormWrapper, ButtonWrapper, Wrapper } from './AddContactForm.styled';
 import { useContacts } from 'components/hooks/useContacts';
 import { Notify } from 'notiflix';
 import { useAddContactMutation } from 'redux/contacts/contactsApi';
@@ -57,7 +57,7 @@ export default function AddContactForm() {
   }
 
   return (
-    <>
+    <Wrapper>
       <ButtonWrapper>
         {!isOpen && (
           <Button
@@ -120,6 +120,6 @@ export default function AddContactForm() {
           </Button>
         </FormWrapper>
       )}
-    </>
+    </Wrapper>
   );
 }

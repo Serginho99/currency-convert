@@ -54,3 +54,8 @@ export const DeleteSvg = styled(RiDeleteBinLine)`
     transform: scale(1.3);
   }
 `;
+
+export const Box = styled.div`
+  display: flex;
+  height: 40px;
+`;

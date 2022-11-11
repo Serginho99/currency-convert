@@ -31,9 +31,13 @@ export default function ContactsList() {
         <IsTitleListEmpty>Your contact list is empty :(</IsTitleListEmpty>
       ) : (
         <ContactList>
-          {getVisibleContacts?.map(({ name, id, number }) => {
-            return <ContactItem key={id} name={name} number={number} id={id} />;
-          })}
+          {getVisibleContacts
+            ?.map(({ name, id, number }) => {
+              return (
+                <ContactItem key={id} name={name} number={number} id={id} />
+              );
+            })
+            ?.sort((a, b) => a.props.name.localeCompare(b.props.name))}
         </ContactList>
       )}
     </>

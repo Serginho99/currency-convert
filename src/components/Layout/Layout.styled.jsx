@@ -9,5 +9,23 @@ export const Header = styled.header`
 `;
 
 export const Main = styled.main`
-  /* background-color: #f5f4fa; */
+  /* background-color: red; */
+  /* display: flex; */
+`;
+
+export const Wrapper = styled.section`
+  display: flex;
+  position: relative;
+  gap: 24px;
+  padding-bottom: 40px;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 1px;
+    background-color: #757575;
+  }
 `;

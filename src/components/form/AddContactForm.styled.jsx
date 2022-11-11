@@ -35,3 +35,8 @@ export const ButtonWrapper = styled.div`
   padding-top: 40px;
   text-align: center;
 `;
+
+export const Wrapper = styled.div`
+  position: sticky;
+  top: 0;
+`;

@@ -5,6 +5,7 @@ import {
   BtnDelete,
   DeleteSvg,
   EditSvg,
+  Box,
 } from './ContactItem.styled';
 import { Notify } from 'notiflix';
 import { memo } from 'react';
@@ -45,16 +46,18 @@ function ContactItem({ name, number, id }) {
           )}
         </div>
         {isLoading ? (
-          <InfinitySpin color="black" width="100" />
+          <Box>
+            <InfinitySpin width="100" color="black" />
+          </Box>
         ) : (
-          <div>
+          <Box>
             <BtnDelete type="button" onClick={() => toggle()}>
               <EditSvg />
             </BtnDelete>
             <BtnDelete type="button" onClick={() => removeContact(id)}>
               <DeleteSvg />
             </BtnDelete>
-          </div>
+          </Box>
         )}
       </Item>
     </>

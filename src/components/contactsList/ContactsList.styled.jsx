@@ -15,7 +15,7 @@ export const ContactList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 400px;
+  /* width: 400px; */
   margin-left: auto;
   margin-right: auto;
   padding-top: 25px;
