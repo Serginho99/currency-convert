@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import defaultImg from '../../../src/img/fon-for-body.png';
 
 export const Header = styled.header`
   padding-top: 20px;
@@ -11,4 +12,7 @@ export const Header = styled.header`
 export const Main = styled.main`
   flex-grow: 1;
   display: flex;
+  background-image: url(${defaultImg});
+  background-size: cover;
+  background-repeat: no-repeat;
 `;

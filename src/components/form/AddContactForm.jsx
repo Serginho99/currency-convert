@@ -76,7 +76,7 @@ export default function AddContactForm() {
           <FormWrapper onSubmit={handleSubmit}>
             <div>
               <TextField
-                style={{ width: '300px' }}
+                style={{ width: '350px' }}
                 id="standard-basic"
                 label="Name"
                 variant="standard"
@@ -89,7 +89,7 @@ export default function AddContactForm() {
             <div>
               <TextField
                 style={{
-                  width: '300px',
+                  width: '350px',
                 }}
                 id="standard-basic"
                 label="Number"
@@ -106,7 +106,7 @@ export default function AddContactForm() {
               variant="contained"
               type="submit"
             >
-              {isLoading ? 'load' : 'Add contact'}
+              {isLoading ? 'load' : 'Add '}
             </Button>
             <Button
               style={{ marginTop: '20px', width: '150px' }}

@@ -5,7 +5,8 @@ import { FaUserEdit } from 'react-icons/fa';
 export const Item = styled.li`
   display: flex;
   text-align: center;
-  justify-content: space-between;
+  padding-bottom: 10px;
+  align-items: center;
   border-bottom: 1px solid rgba(33, 33, 33, 0.2);
   & + & {
     margin-top: 20px;
@@ -15,7 +16,8 @@ export const Item = styled.li`
 export const Text = styled.p`
   margin: 0;
   color: #757575;
-  font-size: 20px;
+  font-size: 22px;
+  margin-left: 30px;
 `;
 
 export const BtnDelete = styled.button`
@@ -27,7 +29,7 @@ export const EditSvg = styled(FaUserEdit)`
   background-color: transparent;
   border: none;
   height: 30px;
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
   text-align: center;
   color: #757575;
@@ -43,7 +45,7 @@ export const DeleteSvg = styled(RiDeleteBinLine)`
   background-color: transparent;
   border: none;
   height: 30px;
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
   text-align: center;
   color: #757575;
@@ -58,4 +60,5 @@ export const DeleteSvg = styled(RiDeleteBinLine)`
 export const Box = styled.div`
   display: flex;
   height: 40px;
+  margin-left: auto;
 `;

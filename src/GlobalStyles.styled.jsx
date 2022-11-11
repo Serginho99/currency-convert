@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import defaultImg from '../src/img/fon-for-body.png';
 
 export const GlobalStyles = createGlobalStyle`
    body{
@@ -9,9 +8,6 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 14px;
   letter-spacing: 0.03em;
   background-color: #f5f4fa;
-  background-image: url(${defaultImg});
-  background-size: cover;
-  background-repeat: no-repeat;
    }
    P,
 h1,

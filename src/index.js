@@ -19,7 +19,7 @@ const theme = createTheme({
       'Verdana',
       'sans - serif',
     ].join(','),
-    fontSize: 15,
+    fontSize: 18,
   },
 });
 
