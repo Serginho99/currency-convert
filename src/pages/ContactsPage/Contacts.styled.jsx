@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import defaultImg from '../../../src/img/fon-for-body.png';
 export const Wrapper = styled.div`
-  display: flex;
+  /* display: flex; */
   gap: 24px;
   height: 100%;
 `;
