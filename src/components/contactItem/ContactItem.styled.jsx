@@ -5,19 +5,22 @@ import { FaUserEdit } from 'react-icons/fa';
 export const Item = styled.li`
   display: flex;
   text-align: center;
-  /* padding-bottom: 10px; */
   align-items: center;
   border-bottom: 1px solid rgba(33, 33, 33, 0.2);
   & + & {
     margin-top: 20px;
   }
+  @media screen and (min-width: 1200px) {
+    padding-bottom: 10px;
+  }
 `;
 
 export const Text = styled.p`
-  /* margin: 0;
-  color: #757575;
-  font-size: 22px; */
   margin-left: 10px;
+  @media screen and (min-width: 1200px) {
+    color: #757575;
+    font-size: 22px;
+  }
 `;
 
 export const BtnDelete = styled.button`
@@ -29,7 +32,6 @@ export const EditSvg = styled(FaUserEdit)`
   background-color: transparent;
   border: none;
   height: 30px;
-  /* font-size: 25px; */
   cursor: pointer;
   text-align: center;
   color: #757575;
@@ -39,13 +41,15 @@ export const EditSvg = styled(FaUserEdit)`
     color: black;
     transform: scale(1.3);
   }
+  @media screen and (min-width: 1200px) {
+    font-size: 25px;
+  }
 `;
 
 export const DeleteSvg = styled(RiDeleteBinLine)`
   background-color: transparent;
   border: none;
   height: 30px;
-  /* font-size: 25px; */
   cursor: pointer;
   text-align: center;
   color: #757575;
@@ -54,6 +58,9 @@ export const DeleteSvg = styled(RiDeleteBinLine)`
   :hover {
     color: black;
     transform: scale(1.3);
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 25px;
   }
 `;
 

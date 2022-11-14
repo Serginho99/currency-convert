@@ -15,6 +15,10 @@ export const NavAuthSignUp = styled(NavLink)`
   &:hover:not(.active) {
     color: #3378af;
   }
+  @media screen and (min-width: 1200px) {
+    font-size: 30px;
+    padding: 10px;
+  }
 `;
 
 export const NavAuthSignIn = styled(NavLink)`
@@ -31,6 +35,10 @@ export const NavAuthSignIn = styled(NavLink)`
   }
   &:hover:not(.active) {
     color: #3378af;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 30px;
+    padding: 10px;
   }
 `;
 

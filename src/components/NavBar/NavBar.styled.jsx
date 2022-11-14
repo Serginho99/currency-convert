@@ -6,7 +6,7 @@ export const Span = styled.span`
   /* font-weight: 600; */
 `;
 
-export const Logo = styled(NavLink)`
+export const LogoMenu = styled(NavLink)`
   color: white;
   font-size: 40px;
   font-weight: 300;
@@ -18,11 +18,30 @@ export const Logo = styled(NavLink)`
   &:hover {
     color: #3378af;
   }
+  @media screen and (min-width: 1199px) {
+    display: none;
+  }
+`;
+
+export const Logo = styled(NavLink)`
+  display: none;
+  @media screen and (min-width: 1199px) {
+    color: white;
+    font-size: 40px;
+    font-weight: 300;
+    padding: 5px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    transition: color 250ms;
+    &:hover {
+      color: #3378af;
+    }
+  }
 `;
 
 export const NavList = styled(NavLink)`
   color: white;
-  /* font-size: 30px; */
   margin-left: 5px;
   transition: all 250ms;
   padding: 5px;
@@ -34,6 +53,9 @@ export const NavList = styled(NavLink)`
   }
   &:hover:not(.active) {
     color: #3378af;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 30px;
   }
 `;
 

@@ -9,4 +9,7 @@ export const Wrapper = styled.div`
 export const Text = styled.p`
   font-size: 10px;
   margin-right: 10px;
+  @media screen and (min-width: 1200px) {
+    font-size: 20px;
+  }
 `;

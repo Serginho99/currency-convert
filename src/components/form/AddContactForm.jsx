@@ -76,7 +76,7 @@ export default function AddContactForm() {
           <FormWrapper onSubmit={handleSubmit}>
             <div>
               <TextField
-                style={{ width: '200px' }}
+                style={{ minWidth: '250px' }}
                 id="standard-basic"
                 label="Name"
                 variant="standard"
@@ -89,7 +89,7 @@ export default function AddContactForm() {
             <div>
               <TextField
                 style={{
-                  width: '200px',
+                  minWidth: '250px',
                 }}
                 id="standard-basic"
                 label="Number"
