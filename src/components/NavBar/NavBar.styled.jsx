@@ -10,7 +10,7 @@ export const LogoMenu = styled(NavLink)`
   color: white;
   font-size: 40px;
   font-weight: 300;
-  padding: 5px;
+  padding: 15px;
   display: flex;
   text-align: center;
   align-items: center;
@@ -29,7 +29,7 @@ export const Logo = styled(NavLink)`
     color: white;
     font-size: 40px;
     font-weight: 300;
-    padding: 5px;
+    padding: 15px;
     display: flex;
     text-align: center;
     align-items: center;
@@ -44,7 +44,10 @@ export const NavList = styled(NavLink)`
   color: white;
   margin-left: 5px;
   transition: all 250ms;
-  padding: 5px;
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 500;
+
   border-radius: 5px;
 
   &.active {

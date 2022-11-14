@@ -19,6 +19,7 @@ export const Btn = styled.button`
   min-width: 64px;
   padding: 7px;
   border-radius: 4px;
+  font-weight: 500;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -62,7 +63,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: 10px;
+  font-size: 15px;
+  font-weight: 500;
   margin-right: 10px;
   @media screen and (min-width: 1200px) {
     font-size: 20px;

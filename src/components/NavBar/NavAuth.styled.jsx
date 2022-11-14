@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export const NavAuthSignUp = styled(NavLink)`
   color: white;
-  font-size: 15px;
+  font-size: 20px;
+  font-weight: 500;
   transition: all 250ms;
   padding: 5px;
   border-radius: 5px;
@@ -23,9 +24,10 @@ export const NavAuthSignUp = styled(NavLink)`
 
 export const NavAuthSignIn = styled(NavLink)`
   color: white;
-  font-size: 15px;
+  font-size: 20px;
   transition: all 250ms;
   padding: 5px;
+  font-weight: 500;
   border-radius: 5px;
   margin-left: 22px;
 
