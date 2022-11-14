@@ -11,8 +11,9 @@ export default function Contacts() {
         <Wrapper>
           <div
             style={{
-              borderRight: '2px solid #757575',
+              // borderRight: '2px solid #757575',
               display: 'flex',
+              justifyContent: 'center',
             }}
           >
             <AddContactForm />

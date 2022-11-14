@@ -34,8 +34,8 @@ export const ButtonWrapper = styled.div`
   /* padding: 24px;
   text-align: center;
   width: 400px; */
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  top: 0; */
 `;
 
 export const Wrapper = styled.div`

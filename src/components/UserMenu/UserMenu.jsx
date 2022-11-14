@@ -18,8 +18,9 @@ export default function UserMenu() {
             color: 'white',
             borderColor: 'white',
             padding: 5,
-            width: 20,
+            minWidth: 20,
             height: 40,
+            fontSize: 10,
           }}
         >
           log out

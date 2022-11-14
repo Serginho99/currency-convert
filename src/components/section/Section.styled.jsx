@@ -9,7 +9,7 @@ export const SectionBox = styled.section`
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
-  // outline: 2px solid red;
+  /* outline: 2px solid red; */
   @media screen and (min-width: 480px) {
     width: 480px;
   }

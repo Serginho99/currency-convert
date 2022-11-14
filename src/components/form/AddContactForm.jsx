@@ -61,7 +61,8 @@ export default function AddContactForm() {
         {!isOpen ? (
           <Button
             style={{
-              width: '300px',
+              // width: '300px',
+              marginTop: '10px',
               color: '#1565c0',
               background: 'transparent',
               border: '2px solid #1565c0',
@@ -75,7 +76,7 @@ export default function AddContactForm() {
           <FormWrapper onSubmit={handleSubmit}>
             <div>
               <TextField
-                style={{ width: '350px' }}
+                style={{ width: '200px' }}
                 id="standard-basic"
                 label="Name"
                 variant="standard"
@@ -88,7 +89,7 @@ export default function AddContactForm() {
             <div>
               <TextField
                 style={{
-                  width: '350px',
+                  width: '200px',
                 }}
                 id="standard-basic"
                 label="Number"

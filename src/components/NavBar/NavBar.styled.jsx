@@ -21,8 +21,9 @@ export const Logo = styled(NavLink)`
 `;
 
 export const NavList = styled(NavLink)`
-  /* color: white;
-  font-size: 30px; */
+  color: white;
+  /* font-size: 30px; */
+  margin-left: 5px;
   transition: all 250ms;
   padding: 5px;
   border-radius: 5px;
@@ -40,7 +41,7 @@ export const Nav = styled.nav`
   display: flex;
   text-align: center;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 `;
 
 export const NavBox = styled.div`
