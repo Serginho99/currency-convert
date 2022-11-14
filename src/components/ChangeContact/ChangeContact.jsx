@@ -35,8 +35,8 @@ const theme = createTheme({
       'Verdana',
       'sans - serif',
     ].join(','),
-    fontSize: 23,
-    fontWeight: 700,
+    fontSize: 15,
+    fontWeight: 500,
   },
 });
 
@@ -97,7 +97,7 @@ export default function ChangeContact({
                   <div>
                     <TextField
                       style={{
-                        width: '400px',
+                        width: '200px',
                         marginBottom: '20px',
                         padding: '10px 0px 20px 0px',
                       }}
@@ -113,7 +113,7 @@ export default function ChangeContact({
                   <div>
                     <TextField
                       style={{
-                        width: '400px',
+                        width: '200px',
                         marginBottom: '30px',
                         padding: '10px 0px 20px 0px',
                       }}
@@ -131,7 +131,7 @@ export default function ChangeContact({
                   style={{
                     marginRight: '10px',
                     marginTop: '20px',
-                    width: '150px',
+                    width: '100px',
                   }}
                   variant="contained"
                   type="submit"
@@ -139,7 +139,7 @@ export default function ChangeContact({
                   save
                 </Button>
                 <Button
-                  style={{ marginTop: '20px', width: '150px' }}
+                  style={{ marginTop: '20px', width: '100px' }}
                   variant="outlined"
                   type="button"
                   onClick={toggle}

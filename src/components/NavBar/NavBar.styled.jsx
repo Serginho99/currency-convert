@@ -41,7 +41,7 @@ export const Nav = styled.nav`
   display: flex;
   text-align: center;
   align-items: center;
-  /* justify-content: space-between; */
+  justify-content: space-between;
 `;
 
 export const NavBox = styled.div`
