@@ -40,7 +40,7 @@ export const ButtonWrapper = styled.div`
   @media screen and (min-width: 1200px) {
     padding: 24px;
     text-align: center;
-    width: 400px;
+    width: 450px;
     position: sticky;
     top: 0;
   }

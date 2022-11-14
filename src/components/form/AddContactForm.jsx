@@ -82,7 +82,7 @@ export default function AddContactForm() {
             {nameError ? (
               <div>
                 <TextField
-                  style={{ minWidth: '250px' }}
+                  style={{ minWidth: '300px' }}
                   // id="standard-basic"
                   error
                   label="Name"
@@ -97,7 +97,7 @@ export default function AddContactForm() {
             ) : (
               <div>
                 <TextField
-                  style={{ minWidth: '250px' }}
+                  style={{ minWidth: '300px' }}
                   // id="standard-basic"
                   label="Name"
                   variant="standard"
@@ -112,7 +112,7 @@ export default function AddContactForm() {
               <div>
                 <TextField
                   style={{
-                    minWidth: '250px',
+                    minWidth: '300px',
                   }}
                   // id="standard-basic"
                   error
@@ -129,7 +129,7 @@ export default function AddContactForm() {
               <div>
                 <TextField
                   style={{
-                    minWidth: '250px',
+                    minWidth: '300px',
                   }}
                   // id="standard-basic"
                   label="Number"
