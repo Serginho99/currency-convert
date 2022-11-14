@@ -32,6 +32,7 @@ export const EditSvg = styled(FaUserEdit)`
   background-color: transparent;
   border: none;
   height: 30px;
+  width: 20px;
   cursor: pointer;
   text-align: center;
   color: #757575;
@@ -50,6 +51,7 @@ export const DeleteSvg = styled(RiDeleteBinLine)`
   background-color: transparent;
   border: none;
   height: 30px;
+  width: 20px;
   cursor: pointer;
   text-align: center;
   color: #757575;
