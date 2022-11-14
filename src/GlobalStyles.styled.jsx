@@ -29,7 +29,7 @@ a {
 main {
 flex-grow: 1;
   display: flex;
-background-image: url(${defaultImg});
+/* background-image: url(${defaultImg}); */
   background-size: cover;
   background-repeat: no-repeat;
 }

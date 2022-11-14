@@ -5,6 +5,7 @@ import UserRoutes from './Routes/UserRoutes';
 import { selectorLoadingUser } from 'redux/auth/authSelector';
 import { GlobalStyles } from 'GlobalStyles.styled';
 import Layout from './Layout/Layout';
+import ParticlesBox from './Particles/Particles';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export default function App() {
   return (
     <>
       <Layout />
-
+      <ParticlesBox />
       <main>{isLoadingUser ? <p>load</p> : <UserRoutes />}</main>
       <GlobalStyles />
     </>
