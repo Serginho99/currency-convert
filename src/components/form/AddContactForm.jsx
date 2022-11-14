@@ -72,7 +72,7 @@ export default function AddContactForm() {
             <div>
               <TextField
                 style={{ minWidth: '250px' }}
-                id="standard-basic"
+                // id="standard-basic"
                 label="Name"
                 variant="standard"
                 onChange={handleChange}
@@ -86,7 +86,7 @@ export default function AddContactForm() {
                 style={{
                   minWidth: '250px',
                 }}
-                id="standard-basic"
+                // id="standard-basic"
                 label="Number"
                 variant="standard"
                 onChange={handleChange}
