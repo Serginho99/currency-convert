@@ -35,7 +35,7 @@ function ContactItem({ name, number, id }) {
           name={name}
           alt={name}
           src="/static/images/avatar/2.jpg"
-          sx={{ width: 25, height: 25 }}
+          sx={{ width: 50, height: 50 }}
         />
         <Text>
           {name}: <a href={`tel:${number}`}>{number}</a>

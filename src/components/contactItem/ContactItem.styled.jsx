@@ -6,6 +6,7 @@ export const Item = styled.li`
   display: flex;
   text-align: center;
   align-items: center;
+  padding-bottom: 5px;
   border-bottom: 1px solid rgba(33, 33, 33, 0.2);
   & + & {
     margin-top: 20px;
