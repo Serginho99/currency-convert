@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorUserName } from 'redux/auth/authSelector';
 import authOperations from 'redux/auth/authOperations';
-import { Wrapper, Text } from './UserMenu.styled';
-import Button from '@mui/material/Button';
+import { Wrapper, Text, Btn } from './UserMenu.styled';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
@@ -11,20 +10,7 @@ export default function UserMenu() {
     <>
       <Wrapper>
         <Text>Hello, {name}</Text>
-        <Button
-          onClick={() => dispatch(authOperations.logOut())}
-          variant="outlined"
-          style={{
-            color: 'white',
-            borderColor: 'white',
-            padding: 5,
-            minWidth: 20,
-            height: 40,
-            fontSize: 10,
-          }}
-        >
-          log out
-        </Button>
+        <Btn onClick={() => dispatch(authOperations.logOut())}>log out</Btn>
       </Wrapper>
     </>
   );

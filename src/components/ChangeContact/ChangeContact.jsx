@@ -35,8 +35,8 @@ const theme = createTheme({
       'Verdana',
       'sans - serif',
     ].join(','),
-    fontSize: 15,
-    fontWeight: 500,
+    fontSize: 23,
+    // fontWeight: 200,
   },
 });
 
@@ -97,7 +97,7 @@ export default function ChangeContact({
                   <div>
                     <TextField
                       style={{
-                        width: '200px',
+                        width: '300px',
                         marginBottom: '20px',
                         padding: '10px 0px 20px 0px',
                       }}
@@ -113,8 +113,8 @@ export default function ChangeContact({
                   <div>
                     <TextField
                       style={{
-                        width: '200px',
-                        marginBottom: '30px',
+                        width: '300px',
+                        // marginBottom: '30px',
                         padding: '10px 0px 20px 0px',
                       }}
                       id="standard-basic"

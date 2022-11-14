@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { FormWrapper, ButtonWrapper, Wrapper } from './AddContactForm.styled';
+import {
+  FormWrapper,
+  ButtonWrapper,
+  Wrapper,
+  Btn,
+} from './AddContactForm.styled';
 import { useContacts } from 'components/hooks/useContacts';
 import { Notify } from 'notiflix';
 import { useAddContactMutation } from 'redux/contacts/contactsApi';
@@ -59,19 +64,9 @@ export default function AddContactForm() {
     <Wrapper>
       <ButtonWrapper>
         {!isOpen ? (
-          <Button
-            style={{
-              // width: '300px',
-              marginTop: '10px',
-              color: '#1565c0',
-              background: 'transparent',
-              border: '2px solid #1565c0',
-            }}
-            onClick={toggle}
-            variant="contained"
-          >
+          <Btn onClick={toggle} variant="contained">
             {isOpen ? 'Cancel' : 'add contact'}
-          </Button>
+          </Btn>
         ) : (
           <FormWrapper onSubmit={handleSubmit}>
             <div>
