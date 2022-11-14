@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 export const NavAuthSignUp = styled(NavLink)`
   color: white;
-  font-size: 30px;
+  font-size: 15px;
   transition: all 250ms;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
 
   &.active {
@@ -19,9 +19,9 @@ export const NavAuthSignUp = styled(NavLink)`
 
 export const NavAuthSignIn = styled(NavLink)`
   color: white;
-  font-size: 30px;
+  font-size: 15px;
   transition: all 250ms;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
   margin-left: 22px;
 
@@ -36,12 +36,13 @@ export const NavAuthSignIn = styled(NavLink)`
 
 export const Box = styled.div`
   position: relative;
-  /* display: flex; */
+  display: flex;
+  margin-left: 20px;
   &::after {
     content: '';
     position: absolute;
     width: 2px;
-    height: 90%;
+    height: 70%;
     top: 50%;
     left: 52%;
     transform: translate(-50%, -50%);

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import defaultImg from './img/fon-for-body.png';
 
 export const GlobalStyles = createGlobalStyle`
    body{
@@ -24,5 +25,12 @@ ul {
 }
 a {
   text-decoration: none;
+}
+main {
+flex-grow: 1;
+  display: flex;
+background-image: url(${defaultImg});
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 `;

@@ -72,7 +72,7 @@ export default function RegisterForm() {
 
   return (
     <>
-      <Container component="main" maxWidth="xs">
+      <Container maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{

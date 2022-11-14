@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 export const Span = styled.span`
   color: black;
-  font-weight: 600;
+  /* font-weight: 600; */
 `;
 
 export const Logo = styled(NavLink)`
   color: white;
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 300;
+  padding: 5px;
   display: flex;
   text-align: center;
   align-items: center;
@@ -20,8 +21,8 @@ export const Logo = styled(NavLink)`
 `;
 
 export const NavList = styled(NavLink)`
-  color: white;
-  font-size: 30px;
+  /* color: white;
+  font-size: 30px; */
   transition: all 250ms;
   padding: 10px;
   border-radius: 5px;

@@ -13,7 +13,7 @@ export default function NavBar() {
       <Nav>
         <Logo to="/">
           <FaBlenderPhone />
-          PhoneBook
+          {/* PhoneBook */}
         </Logo>{' '}
         {isLoggedIn && <NavList to="contacts">Contacts</NavList>}
         {!isLoggedIn ? <NavAuth /> : <UserMenu />}

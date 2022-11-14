@@ -4,6 +4,7 @@ import authOperations from 'redux/auth/authOperations';
 import UserRoutes from './Routes/UserRoutes';
 import { selectorLoadingUser } from 'redux/auth/authSelector';
 import { GlobalStyles } from 'GlobalStyles.styled';
+import Layout from './Layout/Layout';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -15,8 +16,10 @@ export default function App() {
 
   return (
     <>
+      <Layout />
+
+      <main>{isLoadingUser ? <p>load</p> : <UserRoutes />}</main>
       <GlobalStyles />
-      {isLoadingUser ? <p>load</p> : <UserRoutes />}
     </>
   );
 }
