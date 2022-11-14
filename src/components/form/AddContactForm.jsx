@@ -20,6 +20,9 @@ const initialState = {
 export default function AddContactForm() {
   const { isOpen, toggle } = useToggle();
   const [state, setState] = useState(initialState);
+  const NumberEl = Number(state.number);
+  const [nameError, setNameError] = useState(false);
+  const [numberError, setNumberError] = useState(false);
   const { contacts } = useContacts();
   const [addContact, { isLoading }] = useAddContactMutation();
 
@@ -31,6 +34,8 @@ export default function AddContactForm() {
         [name]: value,
       };
     });
+    setNameError(false);
+    setNumberError(false);
   }
 
   async function handleSubmit(e) {
@@ -39,7 +44,12 @@ export default function AddContactForm() {
     if (isDuplicateContact({ name })) {
       return Notify.info(`${name} is already on your contact list`);
     }
-    if (name === '' || number === '') {
+    if (name.trim() === '') {
+      setNameError(true);
+      return;
+    }
+    if (!NumberEl) {
+      setNumberError(true);
       return;
     }
 
@@ -69,32 +79,68 @@ export default function AddContactForm() {
           </Btn>
         ) : (
           <FormWrapper onSubmit={handleSubmit}>
-            <div>
-              <TextField
-                style={{ minWidth: '250px' }}
-                // id="standard-basic"
-                label="Name"
-                variant="standard"
-                onChange={handleChange}
-                type="text"
-                name="name"
-                value={state.name}
-              />
-            </div>
-            <div>
-              <TextField
-                style={{
-                  minWidth: '250px',
-                }}
-                // id="standard-basic"
-                label="Number"
-                variant="standard"
-                onChange={handleChange}
-                type="tel"
-                name="number"
-                value={state.number}
-              />
-            </div>
+            {nameError ? (
+              <div>
+                <TextField
+                  style={{ minWidth: '250px' }}
+                  // id="standard-basic"
+                  error
+                  label="Name"
+                  variant="standard"
+                  onChange={handleChange}
+                  type="text"
+                  name="name"
+                  value={state.name}
+                  helperText="Name is required."
+                />
+              </div>
+            ) : (
+              <div>
+                <TextField
+                  style={{ minWidth: '250px' }}
+                  // id="standard-basic"
+                  label="Name"
+                  variant="standard"
+                  onChange={handleChange}
+                  type="text"
+                  name="name"
+                  value={state.name}
+                />
+              </div>
+            )}
+            {numberError ? (
+              <div>
+                <TextField
+                  style={{
+                    minWidth: '250px',
+                  }}
+                  // id="standard-basic"
+                  error
+                  label="Number"
+                  variant="standard"
+                  onChange={handleChange}
+                  type="tel"
+                  name="number"
+                  value={state.number}
+                  helperText="Should be a number."
+                />
+              </div>
+            ) : (
+              <div>
+                <TextField
+                  style={{
+                    minWidth: '250px',
+                  }}
+                  // id="standard-basic"
+                  label="Number"
+                  variant="standard"
+                  onChange={handleChange}
+                  type="tel"
+                  name="number"
+                  value={state.number}
+                />
+              </div>
+            )}
 
             <Button
               style={{ marginRight: '10px', marginTop: '20px', width: '150px' }}
