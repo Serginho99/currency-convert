@@ -56,6 +56,7 @@ export const NavList = styled(NavLink)`
   }
   @media screen and (min-width: 1200px) {
     font-size: 30px;
+    margin: 0;
   }
 `;
 
