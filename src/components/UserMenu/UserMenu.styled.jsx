@@ -6,6 +6,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: 20px;
+  font-size: 15px;
   margin-right: 10px;
 `;

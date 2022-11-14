@@ -17,6 +17,9 @@ export default function UserMenu() {
           style={{
             color: 'white',
             borderColor: 'white',
+            padding: 5,
+            width: 20,
+            height: 40,
           }}
         >
           log out

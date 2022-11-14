@@ -24,7 +24,7 @@ export const NavList = styled(NavLink)`
   /* color: white;
   font-size: 30px; */
   transition: all 250ms;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
 
   &.active {
