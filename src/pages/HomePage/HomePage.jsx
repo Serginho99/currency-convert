@@ -1,5 +1,5 @@
 import Section from 'components/section/Section';
-import { FaBlenderPhone } from 'react-icons/fa';
+// import { FaBlenderPhone } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { selectorIsLoggedIn, selectorUserName } from 'redux/auth/authSelector';
 import { Wrapper, TitleHomePage, HomeLink, Svg } from './HomePage.styled';
