@@ -48,13 +48,13 @@ const ParticlesBox = () => {
               enable: false,
               mode: 'push',
             },
-            onHover: {
-              enable: true,
-              mode: 'bubble',
-              parallax: {
-                force: 60,
-              },
-            },
+            // onHover: {
+            //   enable: true,
+            //   mode: 'bubble',
+            //   parallax: {
+            //     force: 60,
+            //   },
+            // },
           },
           modes: {
             attract: {

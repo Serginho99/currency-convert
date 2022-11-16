@@ -18,8 +18,8 @@ export const Item = styled.li`
 
 export const Text = styled.p`
   margin-left: 10px;
+  color: black;
   @media screen and (min-width: 1200px) {
-    color: #757575;
     font-size: 22px;
   }
 `;
