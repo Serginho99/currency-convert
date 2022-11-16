@@ -44,7 +44,7 @@ export default function ChangeContact({
   nameContact,
   numberContact,
   id,
-  isOpen,
+  open,
   toggle,
   setIsOpen,
 }) {
@@ -82,7 +82,7 @@ export default function ChangeContact({
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
-          open={isOpen}
+          open={open}
           onClose={toggle}
           closeAfterTransition
           BackdropComponent={Backdrop}
@@ -90,7 +90,7 @@ export default function ChangeContact({
             timeout: 500,
           }}
         >
-          <Fade in={isOpen}>
+          <Fade in={open}>
             <Box sx={style}>
               <Form onSubmit={changeContact}>
                 <ThemeProvider theme={theme}>
