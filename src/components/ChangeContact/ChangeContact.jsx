@@ -9,14 +9,15 @@ import { Button, TextField } from '@mui/material';
 import { Form } from './ChangeContact.styled';
 import { Notify } from 'notiflix';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useContacts } from '../hooks/useContacts';
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 500,
-  height: 350,
+  // width: 500,
+  // height: 350,
   bgcolor: 'background.paper',
   border: '1px solid rgb(21,101,192)',
   borderRadius: 4,
@@ -48,22 +49,36 @@ export default function ChangeContact({
   toggle,
   setIsOpen,
 }) {
+  const { contacts } = useContacts();
   const [updateContact] = useUpdateContactMutation();
   const [name, setName] = useState(nameContact);
+  const [nameError, setNameError] = useState(false);
   const [number, setNumber] = useState(numberContact);
+  const [numberError, setNumberError] = useState(false);
+
+  const numberEl = Number(number);
 
   const options = { name: setName, number: setNumber };
 
   function onChange({ target: { name, value } }) {
     options[name](value);
+    setNumberError(false);
+    setNameError(false);
   }
 
   async function changeContact(e) {
     e.preventDefault();
-    if (name === '') {
+    if (isDuplicateContact({ name })) {
+      setNameError(true);
+      return Notify.info(`${name} is already on your contact list`);
+    }
+
+    if (name === '' || number === '') {
       return;
     }
-    if (number === '') {
+
+    if (!numberEl) {
+      setNumberError(true);
       return;
     }
 
@@ -76,12 +91,16 @@ export default function ChangeContact({
     }
   }
 
+  function isDuplicateContact({ name }) {
+    return contacts.find(contact => contact.name === name);
+  }
+
   return (
     <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
       open={open}
-      onClose={toggle}
+      // onClose={toggle}
       closeAfterTransition
       BackdropComponent={Backdrop}
       BackdropProps={{
@@ -92,38 +111,81 @@ export default function ChangeContact({
         <Box sx={style}>
           <Form onSubmit={changeContact}>
             <ThemeProvider theme={theme}>
-              <div>
-                <TextField
-                  style={{
-                    width: '300px',
-                    marginBottom: '20px',
-                    padding: '10px 0px 20px 0px',
-                  }}
-                  id="standard-basic"
-                  label="Name"
-                  variant="standard"
-                  onChange={onChange}
-                  type="text"
-                  name="name"
-                  value={name}
-                />
-              </div>
-              <div>
-                <TextField
-                  style={{
-                    width: '300px',
-                    // marginBottom: '30px',
-                    padding: '10px 0px 20px 0px',
-                  }}
-                  id="standard-basic"
-                  label="Number"
-                  variant="standard"
-                  onChange={onChange}
-                  type="tel"
-                  name="number"
-                  value={number}
-                />
-              </div>
+              {nameError ? (
+                <div>
+                  <TextField
+                    style={{
+                      width: '300px',
+                      marginBottom: '20px',
+                      padding: '10px 0px 20px 0px',
+                    }}
+                    error
+                    id="standard-basic"
+                    label="Name"
+                    variant="standard"
+                    onChange={onChange}
+                    type="text"
+                    name="name"
+                    value={name}
+                    helperText={`${name} is already on your contact list`}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <TextField
+                    style={{
+                      width: '300px',
+                      marginBottom: '20px',
+                      padding: '10px 0px 20px 0px',
+                    }}
+                    id="standard-basic"
+                    label="Name"
+                    variant="standard"
+                    onChange={onChange}
+                    type="text"
+                    name="name"
+                    value={name}
+                  />
+                </div>
+              )}
+
+              {numberError ? (
+                <div>
+                  <TextField
+                    style={{
+                      width: '300px',
+                      // marginBottom: '30px',
+                      padding: '10px 0px 20px 0px',
+                    }}
+                    id="standard-basic"
+                    error
+                    label="Number"
+                    variant="standard"
+                    onChange={onChange}
+                    type="tel"
+                    name="number"
+                    value={number}
+                    helperText="Should be a number."
+                  />
+                </div>
+              ) : (
+                <div>
+                  <TextField
+                    style={{
+                      width: '300px',
+                      // marginBottom: '30px',
+                      padding: '10px 0px 20px 0px',
+                    }}
+                    id="standard-basic"
+                    label="Number"
+                    variant="standard"
+                    onChange={onChange}
+                    type="tel"
+                    name="number"
+                    value={number}
+                  />
+                </div>
+              )}
             </ThemeProvider>
             <Button
               style={{
