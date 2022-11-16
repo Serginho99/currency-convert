@@ -77,80 +77,76 @@ export default function ChangeContact({
   }
 
   return (
-    <>
-      <div>
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          open={open}
-          onClose={toggle}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
-        >
-          <Fade in={open}>
-            <Box sx={style}>
-              <Form onSubmit={changeContact}>
-                <ThemeProvider theme={theme}>
-                  <div>
-                    <TextField
-                      style={{
-                        width: '300px',
-                        marginBottom: '20px',
-                        padding: '10px 0px 20px 0px',
-                      }}
-                      id="standard-basic"
-                      label="Name"
-                      variant="standard"
-                      onChange={onChange}
-                      type="text"
-                      name="name"
-                      value={name}
-                    />
-                  </div>
-                  <div>
-                    <TextField
-                      style={{
-                        width: '300px',
-                        // marginBottom: '30px',
-                        padding: '10px 0px 20px 0px',
-                      }}
-                      id="standard-basic"
-                      label="Number"
-                      variant="standard"
-                      onChange={onChange}
-                      type="tel"
-                      name="number"
-                      value={number}
-                    />
-                  </div>
-                </ThemeProvider>
-                <Button
+    <Modal
+      aria-labelledby="transition-modal-title"
+      aria-describedby="transition-modal-description"
+      open={open}
+      onClose={toggle}
+      closeAfterTransition
+      BackdropComponent={Backdrop}
+      BackdropProps={{
+        timeout: 500,
+      }}
+    >
+      <Fade in={open}>
+        <Box sx={style}>
+          <Form onSubmit={changeContact}>
+            <ThemeProvider theme={theme}>
+              <div>
+                <TextField
                   style={{
-                    marginRight: '10px',
-                    marginTop: '20px',
-                    width: '100px',
+                    width: '300px',
+                    marginBottom: '20px',
+                    padding: '10px 0px 20px 0px',
                   }}
-                  variant="contained"
-                  type="submit"
-                >
-                  save
-                </Button>
-                <Button
-                  style={{ marginTop: '20px', width: '100px' }}
-                  variant="outlined"
-                  type="button"
-                  onClick={toggle}
-                >
-                  cancel
-                </Button>
-              </Form>
-            </Box>
-          </Fade>
-        </Modal>
-      </div>
-    </>
+                  id="standard-basic"
+                  label="Name"
+                  variant="standard"
+                  onChange={onChange}
+                  type="text"
+                  name="name"
+                  value={name}
+                />
+              </div>
+              <div>
+                <TextField
+                  style={{
+                    width: '300px',
+                    // marginBottom: '30px',
+                    padding: '10px 0px 20px 0px',
+                  }}
+                  id="standard-basic"
+                  label="Number"
+                  variant="standard"
+                  onChange={onChange}
+                  type="tel"
+                  name="number"
+                  value={number}
+                />
+              </div>
+            </ThemeProvider>
+            <Button
+              style={{
+                marginRight: '10px',
+                marginTop: '20px',
+                width: '100px',
+              }}
+              variant="contained"
+              type="submit"
+            >
+              save
+            </Button>
+            <Button
+              style={{ marginTop: '20px', width: '100px' }}
+              variant="outlined"
+              type="button"
+              onClick={toggle}
+            >
+              cancel
+            </Button>
+          </Form>
+        </Box>
+      </Fade>
+    </Modal>
   );
 }

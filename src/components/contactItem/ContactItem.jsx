@@ -43,18 +43,14 @@ function ContactItem({ name, number, id }) {
         <Text>
           {name}: <a href={`tel:${number}`}>{number}</a>
         </Text>
-        <div>
-          {isOpen && (
-            <ChangeContact
-              id={id}
-              nameContact={name}
-              numberContact={number}
-              open={isOpen}
-              toggle={toggle}
-              setIsOpen={setIsOpen}
-            />
-          )}
-        </div>
+        <ChangeContact
+          id={id}
+          nameContact={name}
+          numberContact={number}
+          open={isOpen}
+          toggle={toggle}
+          setIsOpen={setIsOpen}
+        />
         {isLoading ? (
           <Box>
             <InfinitySpin width="100" color="black" />
@@ -69,16 +65,14 @@ function ContactItem({ name, number, id }) {
             </BtnDelete>
           </Box>
         )}
-        {isConfirm && (
-          <AlertDialogSlide
-            open={isConfirm}
-            removeContact={() => removeContact(id)}
-            setOpen={setIsConfirm}
-            id={id}
-            nameContact={name}
-            title="Are you sure?"
-          />
-        )}
+        <AlertDialogSlide
+          open={isConfirm}
+          removeContact={() => removeContact(id)}
+          setOpen={setIsConfirm}
+          id={id}
+          nameContact={name}
+          title="Are you sure?"
+        />
       </Item>
     </>
   );
