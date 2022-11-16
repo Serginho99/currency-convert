@@ -14,12 +14,15 @@ import useToggle from 'components/hooks/useToggle';
 import ChangeContact from 'components/ChangeContact/ChangeContact';
 import { InfinitySpin } from 'react-loader-spinner';
 import BasicAvatar from 'components/BasicAvatar/BasicAvatar';
+import AlertDialogSlide from 'components/Confirm/Confirm';
 
 function ContactItem({ name, number, id }) {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
-  const { isOpen, setIsOpen, toggle } = useToggle();
+  const { isOpen, setIsOpen, toggle, isConfirm, setIsConfirm, toggleConfirm } =
+    useToggle();
 
   async function removeContact() {
+    setIsConfirm(false);
     try {
       await deleteContact(id);
       Notify.info(`${name} has been deleted`);
@@ -46,7 +49,7 @@ function ContactItem({ name, number, id }) {
               id={id}
               nameContact={name}
               numberContact={number}
-              isOpen={isOpen}
+              open={isOpen}
               toggle={toggle}
               setIsOpen={setIsOpen}
             />
@@ -61,10 +64,20 @@ function ContactItem({ name, number, id }) {
             <BtnDelete type="button" onClick={() => toggle()}>
               <EditSvg />
             </BtnDelete>
-            <BtnDelete type="button" onClick={() => removeContact(id)}>
+            <BtnDelete type="button" onClick={() => toggleConfirm()}>
               <DeleteSvg />
             </BtnDelete>
           </Box>
+        )}
+        {isConfirm && (
+          <AlertDialogSlide
+            open={isConfirm}
+            removeContact={() => removeContact(id)}
+            setOpen={setIsConfirm}
+            id={id}
+            nameContact={name}
+            title="Are you sure?"
+          />
         )}
       </Item>
     </>
