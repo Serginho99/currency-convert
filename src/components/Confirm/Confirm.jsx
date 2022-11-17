@@ -39,8 +39,8 @@ export default function AlertDialogSlide({
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-slide-description">
-          Are you sure you want to delete <b>{nameContact}</b> from you're
-          contact list?
+          Are you sure you want to delete <b>{nameContact}</b> from your contact
+          list?
         </DialogContentText>
       </DialogContent>
       <DialogActions>
