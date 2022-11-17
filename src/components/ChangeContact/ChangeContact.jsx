@@ -36,7 +36,7 @@ const theme = createTheme({
       'Verdana',
       'sans - serif',
     ].join(','),
-    fontSize: 23,
+    fontSize: 16,
     // fontWeight: 200,
   },
 });
