@@ -1,26 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import authOperations from 'redux/auth/authOperations';
-import UserRoutes from './Routes/UserRoutes';
-import { selectorLoadingUser } from 'redux/auth/authSelector';
-import { GlobalStyles } from 'GlobalStyles.styled';
-import Layout from './Layout/Layout';
-import ParticlesBox from './Particles/Particles';
+import Main from './Main/Main';
 
-export default function App() {
-  const dispatch = useDispatch();
-  const isLoadingUser = useSelector(selectorLoadingUser);
-
-  useEffect(() => {
-    dispatch(authOperations.currentUser());
-  }, [dispatch]);
-
+export const App = () => {
   return (
-    <>
-      <Layout />
-      <ParticlesBox />
-      <main>{isLoadingUser ? <p>load</p> : <UserRoutes />}</main>
-      <GlobalStyles />
-    </>
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        marginLeft: ' auto',
+        marginRight: 'auto',
+        alignItems: 'center',
+        fontSize: 40,
+        color: '#010101',
+      }}
+    >
+      <Main />
+    </div>
   );
-}
+};
